@@ -176,15 +176,20 @@
         _underLine.czq_with = [titleBtn.currentTitle sizeWithAttributes:attributs].width;
         _underLine.czq_centerX = titleBtn.czq_centerX;
         
-        //点击按钮设置scrollView的contentOfSet，以至于点击titleBtn按钮底部tableView跟着相对移动
-        //        NSUInteger index = [self.titleView.subviews indexOfObject:titleBtn];
-        CGFloat conOfSetX = self.scrollView.czq_with * index;
-        self.scrollView.contentOffset = CGPointMake(conOfSetX, self.scrollView.contentOffset.y);
+//        //点击按钮设置scrollView的contentOfSet，以至于点击titleBtn按钮底部tableView跟着相对移动
+//        //        NSUInteger index = [self.titleView.subviews indexOfObject:titleBtn];
+//        CGFloat conOfSetX = self.scrollView.czq_with * index;
+//        self.scrollView.contentOffset = CGPointMake(conOfSetX, self.scrollView.contentOffset.y);
     } completion:^(BOOL finished) {
         //添加scrollView的子控件
         [self addChildVCViewIntoScrollView:index];
         //
     }];
+    
+    //点击按钮设置scrollView的contentOfSet，以至于点击titleBtn按钮底部tableView跟着相对移动
+    //        NSUInteger index = [self.titleView.subviews indexOfObject:titleBtn];
+    CGFloat conOfSetX = self.scrollView.czq_with * index;
+    self.scrollView.contentOffset = CGPointMake(conOfSetX, self.scrollView.contentOffset.y);
     //---------------设置下画线中心按钮的X值，动态设置-----------
     
     //获取子控件个数
