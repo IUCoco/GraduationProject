@@ -13,7 +13,7 @@
 #import <UserNotifications/UserNotifications.h>
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
 
-#define LOCAL_PUSH_TEXT  @[@"快来联系您的新客户吧！"]
+#define LOCAL_PUSH_TEXT  @[@"要下班了快来签到吧！"]
 
 //遵守UITabBarControllerDelegate监听tabBar的连续点击
 @interface AppDelegate ()<UNUserNotificationCenterDelegate, BMKGeneralDelegate>
@@ -117,13 +117,21 @@
 - (void)regiterLocalNotification{
     
     UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
-    content.title = @"销售助手最新通知";
-    content.subtitle = @"有新的任务快来完成";
+    content.title = @"销售助手签到通知";
+//    content.subtitle = @"有新的任务快来完成";
     content.body = LOCAL_PUSH_TEXT[0];
     content.badge = @1;
     
     //重复提醒，时间间隔要大于60s
     UNTimeIntervalNotificationTrigger *trigger1 = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:70 repeats:NO];
+    
+    //在每天的16点0分提醒
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    components.hour = 16;
+    components.minute = 0;
+    // components 日期
+    UNCalendarNotificationTrigger *calendarTrigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:components repeats:YES];
+    
     NSString *requertIdentifier = @"RequestIdentifier";
     UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:requertIdentifier content:content trigger:trigger1];
     [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {

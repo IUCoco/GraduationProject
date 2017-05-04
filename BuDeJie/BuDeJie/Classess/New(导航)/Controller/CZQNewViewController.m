@@ -198,7 +198,7 @@
     [textF mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(searchView.mas_centerY);
         make.left.equalTo(searchLlab.mas_right).offset(20);
-        make.width.mas_equalTo(80);
+        make.width.mas_equalTo(150);
         make.height.mas_equalTo(30);
     }];
     
