@@ -123,7 +123,7 @@
     content.badge = @1;
     
     //重复提醒，时间间隔要大于60s
-    UNTimeIntervalNotificationTrigger *trigger1 = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:70 repeats:YES];
+    UNTimeIntervalNotificationTrigger *trigger1 = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:70 repeats:NO];
     NSString *requertIdentifier = @"RequestIdentifier";
     UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:requertIdentifier content:content trigger:trigger1];
     [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
