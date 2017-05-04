@@ -15,7 +15,6 @@
 		5637BDDA1DE3075E00FDE1F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5637BDD91DE3075E00FDE1F2 /* Assets.xcassets */; };
 		5637BDDD1DE3075E00FDE1F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5637BDDB1DE3075E00FDE1F2 /* LaunchScreen.storyboard */; };
 		5637BDE81DE3075F00FDE1F2 /* BuDeJieUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5637BDE71DE3075F00FDE1F2 /* BuDeJieUITests.m */; };
-		5637BE1C1DE3194300FDE1F2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5637BE161DE3194300FDE1F2 /* AppDelegate.m */; };
 		5637BE1D1DE3194300FDE1F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5637BE171DE3194300FDE1F2 /* main.m */; };
 		5637BE201DE31A7F00FDE1F2 /* CZQEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5637BE1F1DE31A7F00FDE1F2 /* CZQEssenceViewController.m */; };
 		5637BE261DE31B0500FDE1F2 /* CZQMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5637BE251DE31B0500FDE1F2 /* CZQMeViewController.m */; };
@@ -51,6 +50,8 @@
 		CF2FA42A1E41B91B00630556 /* CZQPictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2FA4291E41B91B00630556 /* CZQPictureCell.m */; };
 		CF2FA42D1E41B94600630556 /* CZQWoldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2FA42C1E41B94600630556 /* CZQWoldCell.m */; };
 		CF2FA4331E41F99D00630556 /* CZQTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF2FA4321E41F99D00630556 /* CZQTopicCell.xib */; };
+		CF6AB6921EBAB8DD00860979 /* CZQBdiduMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = CF6AB6911EBAB8DD00860979 /* CZQBdiduMap.mm */; };
+		CF8223DC1EB9C89C00DCCF91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8223DB1EB9C89C00DCCF91 /* AppDelegate.m */; };
 		CFAAF0621E3E0E7500ED63A7 /* CZQTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAAF0611E3E0E7500ED63A7 /* CZQTopic.m */; };
 		CFB7EFAA1EA2FD9300D7A097 /* CZQFriendThrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB7EF9C1EA2FD9300D7A097 /* CZQFriendThrendsViewController.m */; };
 		CFB7EFAB1EA2FD9300D7A097 /* CZQFriendThrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFB7EF9D1EA2FD9300D7A097 /* CZQFriendThrendsViewController.xib */; };
@@ -100,8 +101,7 @@
 		5637BDE31DE3075F00FDE1F2 /* BuDeJieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuDeJieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5637BDE71DE3075F00FDE1F2 /* BuDeJieUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuDeJieUITests.m; sourceTree = "<group>"; };
 		5637BDE91DE3075F00FDE1F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5637BE151DE3194300FDE1F2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		5637BE161DE3194300FDE1F2 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5637BE151DE3194300FDE1F2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
 		5637BE171DE3194300FDE1F2 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5637BE1E1DE31A7F00FDE1F2 /* CZQEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQEssenceViewController.h; sourceTree = "<group>"; };
 		5637BE1F1DE31A7F00FDE1F2 /* CZQEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQEssenceViewController.m; sourceTree = "<group>"; };
@@ -163,6 +163,9 @@
 		CF2FA42B1E41B94600630556 /* CZQWoldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQWoldCell.h; sourceTree = "<group>"; };
 		CF2FA42C1E41B94600630556 /* CZQWoldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQWoldCell.m; sourceTree = "<group>"; };
 		CF2FA4321E41F99D00630556 /* CZQTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CZQTopicCell.xib; sourceTree = "<group>"; };
+		CF6AB6901EBAB8DD00860979 /* CZQBdiduMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQBdiduMap.h; sourceTree = "<group>"; };
+		CF6AB6911EBAB8DD00860979 /* CZQBdiduMap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CZQBdiduMap.mm; sourceTree = "<group>"; };
+		CF8223DB1EB9C89C00DCCF91 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = BuDeJie/Classess/Other/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		CFAAF0601E3E0E7500ED63A7 /* CZQTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQTopic.h; sourceTree = "<group>"; };
 		CFAAF0611E3E0E7500ED63A7 /* CZQTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQTopic.m; sourceTree = "<group>"; };
 		CFB7EF9B1EA2FD9300D7A097 /* CZQFriendThrendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQFriendThrendsViewController.h; sourceTree = "<group>"; };
@@ -421,8 +424,6 @@
 			isa = PBXGroup;
 			children = (
 				5637BE341DE3313100FDE1F2 /* Category */,
-				5637BE151DE3194300FDE1F2 /* AppDelegate.h */,
-				5637BE161DE3194300FDE1F2 /* AppDelegate.m */,
 				5637BE171DE3194300FDE1F2 /* main.m */,
 				5637BE411DE4002800FDE1F2 /* BuDeJie.pch */,
 				56ED04471DF26759009C0623 /* CZQConst.h */,
@@ -505,12 +506,16 @@
 		5637BE341DE3313100FDE1F2 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				5637BE151DE3194300FDE1F2 /* AppDelegate.h */,
+				CF8223DB1EB9C89C00DCCF91 /* AppDelegate.m */,
 				5637BE351DE3318E00FDE1F2 /* UIImage+CZQImage.h */,
 				5637BE361DE3318E00FDE1F2 /* UIImage+CZQImage.m */,
 				5637BE3E1DE3FB8700FDE1F2 /* UIView+CZQFrame.h */,
 				5637BE3F1DE3FB8700FDE1F2 /* UIView+CZQFrame.m */,
 				5637BE421DE530AB00FDE1F2 /* UIBarButtonItem+CZQItem.h */,
 				5637BE431DE530AB00FDE1F2 /* UIBarButtonItem+CZQItem.m */,
+				CF6AB6901EBAB8DD00860979 /* CZQBdiduMap.h */,
+				CF6AB6911EBAB8DD00860979 /* CZQBdiduMap.mm */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -879,6 +884,7 @@
 				CF2FA42A1E41B91B00630556 /* CZQPictureCell.m in Sources */,
 				CFBB1D111E435FFC00DB98FD /* CZQTopicPictureView.m in Sources */,
 				CF2FA4241E41B8E900630556 /* CZQVideoCell.m in Sources */,
+				CF6AB6921EBAB8DD00860979 /* CZQBdiduMap.mm in Sources */,
 				CFBB1D0C1E435FC700DB98FD /* CZQTopicVoiceView.m in Sources */,
 				CFB7EFAE1EA2FD9300D7A097 /* CZQFastLoginButton.m in Sources */,
 				CF2FA4271E41B90000630556 /* CZQVoiceCell.m in Sources */,
@@ -888,6 +894,7 @@
 				5637BE1D1DE3194300FDE1F2 /* main.m in Sources */,
 				5637BE4E1DE5876800FDE1F2 /* CZQSettingViewController.m in Sources */,
 				5637BE371DE3318E00FDE1F2 /* UIImage+CZQImage.m in Sources */,
+				CF8223DC1EB9C89C00DCCF91 /* AppDelegate.m in Sources */,
 				565ECA761DF1A2520022EB9D /* CZQPictureViewController.m in Sources */,
 				CFB7EFAF1EA2FD9300D7A097 /* CZQFastLoginView.m in Sources */,
 				5637BE691DE692E400FDE1F2 /* CZQADItem.m in Sources */,
@@ -907,7 +914,6 @@
 				565ECA791DF1A2750022EB9D /* CZQWordViewController.m in Sources */,
 				5637BE331DE32BE200FDE1F2 /* CZQTabBarController.m in Sources */,
 				5637BE3A1DE3E49F00FDE1F2 /* CZQTabBar.m in Sources */,
-				5637BE1C1DE3194300FDE1F2 /* AppDelegate.m in Sources */,
 				CF2FA42D1E41B94600630556 /* CZQWoldCell.m in Sources */,
 				CFB7EFC71EA2FE2A00D7A097 /* CZQLoginAndRegisteModelView.m in Sources */,
 			);
