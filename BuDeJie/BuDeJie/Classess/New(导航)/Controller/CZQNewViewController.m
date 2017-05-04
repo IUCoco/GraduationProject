@@ -26,12 +26,14 @@
 
 @property (nonatomic, strong) BMKUserLocation *userLocation;
 
+@property (nonatomic, strong) NSMutableArray *poiInfoArrM;
+
 @end
 
 @implementation CZQNewViewController
 
 #pragma mark - lazy
-- (BMKMapView *)mapView{
+- (BMKMapView *)mapView {
     if (!_mapView) {
         _mapView = [[BMKMapView alloc] init];
         _mapView.zoomLevel = 21;
@@ -57,13 +59,23 @@
 }
 
 /** 定位功能 */
-- (BMKLocationService *)locService{
+- (BMKLocationService *)locService {
     if (!_locService) {
         _locService = [[BMKLocationService alloc] init];
+        _locService.delegate = self;
         //设定定位精度
         _locService.desiredAccuracy = kCLLocationAccuracyBest;
+        //开启定位
+        [_locService startUserLocationService];
     }
     return _locService;
+}
+
+- (NSMutableArray *)poiInfoArrM {
+    if (!_poiInfoArrM) {
+        _poiInfoArrM = [NSMutableArray array];
+    }
+    return _poiInfoArrM;
 }
 
 #pragma mark - system
@@ -75,6 +87,8 @@
     [self setUpNavBar];
     //设置mapView
     [self mapView];
+    //设置定位
+    [self locService];
     //设置搜索栏
     [self setupSearch];
 }
@@ -87,13 +101,6 @@
 {
     [_mapView viewWillAppear];
     _mapView.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
-    self.locService.delegate = self;
-    //设置我的位置(原来是蓝点的位置)的样式
-    BMKLocationViewDisplayParam *param = [[BMKLocationViewDisplayParam alloc]init];
-    //显示精度圈
-    param.isAccuracyCircleShow = YES;
-    [self.mapView updateLocationViewWithParam:param];
-//    [self beginSearchWithCenter:kCLLocationCoordinate2DInvalid andKeyWord:nil];
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -111,30 +118,52 @@
 }
 
 #pragma mark - 定位功能
-/** * 当mapView完成加载的时候 * @param mapView 地图对象 */
-- (void)mapViewDidFinishLoading:(BMKMapView *)mapView
-{
-    [self.locService startUserLocationService];
-    //启动定位服务
-    self.mapView.showsUserLocation = NO;
-    //先关闭显示的定位图层
-    self.mapView.userTrackingMode = BMKUserTrackingModeNone;
-    //设置定位的状态
-    self.mapView.showsUserLocation = YES;
-    //显示定位图层
-}
 
 /** 用户位置更新后，会调用此函数 */
-- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation{
-    [self.mapView updateLocationData:userLocation];
-    //那么定位点置中
-    self.mapView.centerCoordinate = self.locService.userLocation.location.coordinate;
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation {
     
-    BMKCoordinateRegion region ;//表示范围的结构体
-    region.center = self.mapView.centerCoordinate;//中心点
-    region.span.latitudeDelta = 0.01;//经度范围（设置为0.1表示显示范围为0.2的纬度范围）
-    region.span.longitudeDelta = 0.01;//纬度范围
-    [_mapView setRegion:region animated:YES];
+    //展示定位
+    self.mapView.showsUserLocation = YES;
+
+    //更新位置数据
+    [self.mapView updateLocationData:userLocation];
+    
+    //获取用户的坐标
+    self.mapView.centerCoordinate = userLocation.location.coordinate;
+    
+    self.mapView.zoomLevel = 18;
+    
+//    //初始化一个周边云检索对象
+//    BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc] init];
+//    
+//    //索引 默认为0
+//    option.pageIndex = 0;
+//    
+//    //页数默认为10
+//    option.pageCapacity = 50;
+//    
+//    //搜索半径
+//    option.radius = 200;
+//    
+//    //检索的中心点，经纬度
+//    option.location = userLocation.location.coordinate;
+//    
+//    //搜索的关键字
+//    option.keyword = @"小吃";
+//    
+//    
+//    
+//    //根据中心点、半径和检索词发起周边检索
+//    BOOL flag = [self.searcher poiSearchNearBy:option];
+//    if (flag) {
+//        NSLog(@"搜索成功");
+//        //关闭定位
+//        [self.locService stopUserLocationService];
+//    }
+//    else {
+//        
+//        NSLog(@"搜索失败");
+//    }
     
     self.userLocation = userLocation;
 
@@ -144,7 +173,7 @@
 
 //设置检索
 
-- (void)setupSearch{
+- (void)setupSearch {
     UIView *searchView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, CZQScreenWith, 49)];
     searchView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:searchView];
@@ -163,7 +192,7 @@
     textF.delegate = self;
     textF.returnKeyType = UIReturnKeyDone;
     textF.borderStyle = UITextBorderStyleRoundedRect;
-    textF.placeholder = @"小吃";
+    textF.text = @"小吃";
     [searchView addSubview:textF];
     self.textF = textF;
     [textF mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -188,24 +217,39 @@
     
 }
 
-//发起检索
--(void)beginSearch {
-    //发起检索
-    BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc]init];
-    option.pageIndex = 0;
-    option.pageCapacity = 10;
-    option.location = self.userLocation.location.coordinate;
-    option.keyword = self.textF.text;
-    BOOL flag = [self.searcher poiSearchNearBy:option];
-    if(flag)
-    {
-        NSLog(@"周边检索发送成功");
-    }
-    else
-    {
-        NSLog(@"周边检索发送失败");
-    }
+//开始检索
+- (void)beginSearch {
+    //初始化一个周边云检索对象
+    BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc] init];
     
+    //索引 默认为0
+    option.pageIndex = 0;
+    
+    //页数默认为10
+    option.pageCapacity = 50;
+    
+    //搜索半径
+    option.radius = 1000;
+    
+    //检索的中心点，经纬度
+    option.location = self.userLocation.location.coordinate;
+    
+    //搜索的关键字
+    option.keyword = self.textF.text;
+    
+    
+    
+    //根据中心点、半径和检索词发起周边检索
+    BOOL flag = [self.searcher poiSearchNearBy:option];
+    if (flag) {
+        NSLog(@"搜索成功");
+        //关闭定位
+        [self.locService stopUserLocationService];
+    }
+    else {
+        
+        NSLog(@"搜索失败");
+    }
 }
 
 //BMKPoiSearchDelegate
@@ -219,9 +263,10 @@
     if (errorCode == BMK_SEARCH_NO_ERROR) {
         //在此处理正常结果
         NSLog(@"检索结果正常返回");
+        [_mapView removeAnnotations:_mapView.annotations];
         [poiResult.poiInfoList enumerateObjectsUsingBlock:^(BMKPoiInfo  *_Nonnull poiInfo, NSUInteger idx, BOOL * _Nonnull stop) {
-            
             NSLog(@"%@---------%@", poiInfo.name, poiInfo.address);
+            
             // 添加一个PointAnnotation
             BMKPointAnnotation* annotation = [[BMKPointAnnotation alloc]init];
             annotation.coordinate = poiInfo.pt;
