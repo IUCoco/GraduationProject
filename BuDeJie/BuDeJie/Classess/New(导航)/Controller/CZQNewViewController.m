@@ -284,6 +284,28 @@
     }
 }
 
+//自定义大头针
+- (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id<BMKAnnotation>)annotation {
+    BMKPinAnnotationView *newAnnotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myAnnotation"];
+    newAnnotationView.pinColor = BMKPinAnnotationColorRed;
+    newAnnotationView.animatesDrop = YES;// 设置该标注点动画显示
+    newAnnotationView.annotation=annotation;
+//    newAnnotationView.image = [UIImage imageNamed:@"mainCellCommentClick"];   //把大头针换成别的图片
+    UIButton *navigateBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    navigateBtn.frame = CGRectMake(0, 0, 32, 20);
+    navigateBtn.titleLabel.font = [UIFont systemFontOfSize:6];
+    navigateBtn.backgroundColor = [UIColor grayColor];
+    [navigateBtn.layer setMasksToBounds:YES];
+    [navigateBtn.layer setCornerRadius:5.0];
+    [navigateBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [navigateBtn setTitle:@"点击导航" forState:UIControlStateNormal];
+    [navigateBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [navigateBtn addTarget:self action:@selector(searchBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    newAnnotationView.rightCalloutAccessoryView = navigateBtn;
+    
+    return newAnnotationView;
+}
+
 //textF 取消第一响应者
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
