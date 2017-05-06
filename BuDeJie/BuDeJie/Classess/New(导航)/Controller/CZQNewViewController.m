@@ -13,7 +13,7 @@
 #import<BaiduMapAPI_Location/BMKLocationComponent.h>
 #import <Masonry.h>
 
-@interface CZQNewViewController ()<BMKMapViewDelegate, BMKPoiSearchDelegate, BMKLocationServiceDelegate, UITextFieldDelegate>
+@interface CZQNewViewController ()<BMKMapViewDelegate, BMKPoiSearchDelegate, BMKLocationServiceDelegate, UITextFieldDelegate, BMKRouteSearchDelegate, BMKGeoCodeSearchDelegate>
 
 /** 地图 */
 @property (nonatomic, strong) BMKMapView *mapView;
@@ -25,8 +25,19 @@
 @property (nonatomic, strong) UITextField *textF;
 
 @property (nonatomic, strong) BMKUserLocation *userLocation;
+/** 路径规划 */
+@property (nonatomic, strong) BMKRouteSearch *routeSearch;
 
-@property (nonatomic, strong) NSMutableArray *poiInfoArrM;
+/** 地理编码管理器 */
+@property (nonatomic, strong) CLGeocoder *geoC;
+
+@property (nonatomic, strong) BMKGeoCodeSearch *geoSearcher;
+
+//自己地址坐标
+@property (nonatomic) CLLocationCoordinate2D selfLocation;
+//目标地址坐标
+@property (nonatomic) CLLocationCoordinate2D aidLocation;
+
 
 @end
 
@@ -71,12 +82,35 @@
     return _locService;
 }
 
-- (NSMutableArray *)poiInfoArrM {
-    if (!_poiInfoArrM) {
-        _poiInfoArrM = [NSMutableArray array];
+/** 路径规划 */
+
+- (BMKRouteSearch *)routeSearch {
+    if (!_routeSearch) {
+        _routeSearch = [[BMKRouteSearch alloc] init];
+        //设置delegate，用于接收检索结果
+        _routeSearch.delegate = self;
     }
-    return _poiInfoArrM;
+    return _routeSearch;
 }
+
+/** 地理编码管理器 */
+- (CLGeocoder *)geoC
+{
+    if (!_geoC) {
+        _geoC = [[CLGeocoder alloc] init];
+    }
+    return _geoC;
+}
+
+- (BMKGeoCodeSearch *)geoSearcher {
+    if (!_geoSearcher) {
+        _geoSearcher = [[BMKGeoCodeSearch alloc] init];
+        _geoSearcher.delegate = self;
+    }
+    
+    return _geoSearcher;
+}
+
 
 #pragma mark - system
 - (void)viewDidLoad {
@@ -91,6 +125,10 @@
     [self locService];
     //设置搜索栏
     [self setupSearch];
+    //路径规划
+    [self routeSearch];
+    //地理编码
+    [self geoSearcher];
 }
 
 /**
@@ -107,6 +145,7 @@
     [_mapView viewWillDisappear];
     _mapView.delegate = nil; // 不用时，置nil
     self.locService.delegate = nil;
+    _geoSearcher.delegate = nil;
 }
 
 - (void)dealloc
@@ -133,40 +172,53 @@
     
     self.mapView.zoomLevel = 18;
     
-//    //初始化一个周边云检索对象
-//    BMKNearbySearchOption *option = [[BMKNearbySearchOption alloc] init];
-//    
-//    //索引 默认为0
-//    option.pageIndex = 0;
-//    
-//    //页数默认为10
-//    option.pageCapacity = 50;
-//    
-//    //搜索半径
-//    option.radius = 200;
-//    
-//    //检索的中心点，经纬度
-//    option.location = userLocation.location.coordinate;
-//    
-//    //搜索的关键字
-//    option.keyword = @"小吃";
-//    
-//    
-//    
-//    //根据中心点、半径和检索词发起周边检索
-//    BOOL flag = [self.searcher poiSearchNearBy:option];
-//    if (flag) {
-//        NSLog(@"搜索成功");
-//        //关闭定位
-//        [self.locService stopUserLocationService];
-//    }
-//    else {
-//        
-//        NSLog(@"搜索失败");
-//    }
-    
     self.userLocation = userLocation;
+    
+    
+//    //地理反编码获取当前位置具体信息
+//    [self.geoC reverseGeocodeLocation:userLocation.location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+//        CLPlacemark *pl = [placemarks firstObject];
+//        
+//        if(error == nil)
+//        {
+//            NSLog(@"locality:%@--++++-subLocality:%@-++++--%@", pl.locality, pl.subLocality, pl.administrativeArea);
+////            locality:杭州市--++++-subLocality:江干区-++++--浙江省
+//        }
+//        
+//    }];
+    
+    //发起反向地理编码检索 获取当前位置具体信息
+    CLLocationCoordinate2D pt = userLocation.location.coordinate;
+    BMKReverseGeoCodeOption *reverseGeoCodeSearchOption = [[
+    BMKReverseGeoCodeOption alloc]init];
+    reverseGeoCodeSearchOption.reverseGeoPoint = pt;
+    BOOL flag = [self.geoSearcher reverseGeoCode:reverseGeoCodeSearchOption];
+    if(flag)
+    {
+      NSLog(@"反geo检索发送成功");
+    }
+    else
+    {
+      NSLog(@"反geo检索发送失败");
+    }
+    
+    
 
+}
+
+//接收反向地理编码结果
+-(void) onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:
+(BMKReverseGeoCodeResult *)result
+errorCode:(BMKSearchErrorCode)error{
+  if (error == BMK_SEARCH_NO_ERROR) {
+      //在此处理正常结果
+      NSLog(@"Success找到结果");
+      CZQLog(@"%@+++++++++%@++++++++%@+++++%zd", result.addressDetail, result.address, result.businessCircle, result.location);
+      self.selfLocation = result.location;
+  }
+  else {
+      NSLog(@"抱歉，未找到结果");
+  }
 }
 
 #pragma mark - 检索功能
@@ -300,7 +352,7 @@
     [navigateBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [navigateBtn setTitle:@"点击导航" forState:UIControlStateNormal];
     [navigateBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [navigateBtn addTarget:self action:@selector(searchBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [navigateBtn addTarget:self action:@selector(navigateBtnClick) forControlEvents:UIControlEventTouchUpInside];
     newAnnotationView.rightCalloutAccessoryView = navigateBtn;
     
     return newAnnotationView;
@@ -318,6 +370,61 @@
     NSLog(@"searchBtnClick");
     [self beginSearch];
 }
+
+#pragma mark - 路径规划
+
+/**
+ *当选中一个annotation views时，调用此接口
+ *@param mapView 地图View
+ *@param views 选中的annotation views
+ */
+- (void)mapView:(BMKMapView *)mapView didSelectAnnotationView:(BMKAnnotationView *)view {
+    NSLog(@"%@-----%@--+++%zd", view.annotation.title, view.annotation.subtitle, view.annotation.coordinate);
+    self.aidLocation = view.annotation.coordinate;
+}
+
+//大头针导航按钮点击
+- (void)navigateBtnClick {
+    CZQLog(@"大头针导航按钮点击");
+    //构造公共交通路线规划检索信息类
+    BMKPlanNode* start = [[BMKPlanNode alloc]init];
+//    start.name = @"滨江";
+//    start.cityName = @"杭州";
+    start.pt = self.selfLocation;
+    BMKPlanNode* end = [[BMKPlanNode alloc]init];
+//    end.name = @"萧山";
+//    CLLocationCoordinate2D
+//    end.cityName = @"杭州";
+    end.pt = self.aidLocation;
+    BMKWalkingRoutePlanOption *option = [[BMKWalkingRoutePlanOption alloc]init];
+    option.from = start;
+    option.to = end;
+    //发起检索
+    BOOL flag = [_routeSearch walkingSearch:option];
+    
+    if(flag) {
+        NSLog(@"步行检索  发送成功");
+    } else {
+        NSLog(@"步行检索  发送失败");
+    }
+}
+
+
+/**
+ *返回步行搜索结果
+ *@param searcher 搜索对象
+ *@param result 搜索结果，类型为BMKWalkingRouteResult
+ *@param error 错误号，@see BMKSearchErrorCode
+ */
+- (void)onGetWalkingRouteResult:(BMKRouteSearch*)searcher result:(BMKWalkingRouteResult*)result errorCode:(BMKSearchErrorCode)error{
+    if (error == BMK_SEARCH_NO_ERROR) {
+        //成功获取结果
+        CZQLog(@"检索结果正常返回");
+    } else {
+        //检索失败
+    }
+}
+
 
 
 #pragma mark - 设置导航条
