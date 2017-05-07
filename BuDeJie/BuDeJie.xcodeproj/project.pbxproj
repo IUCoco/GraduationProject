@@ -44,6 +44,8 @@
 		565ECA791DF1A2750022EB9D /* CZQWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565ECA781DF1A2750022EB9D /* CZQWordViewController.m */; };
 		56ED04491DF26759009C0623 /* CZQConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 56ED04481DF26759009C0623 /* CZQConst.m */; };
 		7B6A19A697832FB3E88CFB7D /* libPods-BuDeJie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 592A89307AB02FF817496E04 /* libPods-BuDeJie.a */; };
+		CF2A15481EBDFC1300538FE3 /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2A15471EBDFC1300538FE3 /* UIImage+Rotate.m */; };
+		CF2A154B1EBDFF3800538FE3 /* RouteAnnotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = CF2A154A1EBDFF3800538FE3 /* RouteAnnotation.mm */; };
 		CF2FA4211E41B8B400630556 /* CZQTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2FA4201E41B8B400630556 /* CZQTopicCell.m */; };
 		CF2FA4241E41B8E900630556 /* CZQVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2FA4231E41B8E900630556 /* CZQVideoCell.m */; };
 		CF2FA4271E41B90000630556 /* CZQVoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2FA4261E41B90000630556 /* CZQVoiceCell.m */; };
@@ -64,7 +66,7 @@
 		CFB7EFC71EA2FE2A00D7A097 /* CZQLoginAndRegisteModelView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB7EFC51EA2FE2A00D7A097 /* CZQLoginAndRegisteModelView.m */; };
 		CFB7EFC81EA2FE2A00D7A097 /* CZQLoginAndRegisteModelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFB7EFC61EA2FE2A00D7A097 /* CZQLoginAndRegisteModelView.xib */; };
 		CFB7EFD61EA3085000D7A097 /* CZQFllowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB7EFCC1EA3085000D7A097 /* CZQFllowViewController.m */; };
-		CFB7EFD71EA3085000D7A097 /* CZQNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB7EFCE1EA3085000D7A097 /* CZQNewViewController.m */; };
+		CFB7EFD71EA3085000D7A097 /* CZQNewViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CFB7EFCE1EA3085000D7A097 /* CZQNewViewController.mm */; };
 		CFB7EFD81EA3085000D7A097 /* CZQFollowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB7EFD11EA3085000D7A097 /* CZQFollowItem.m */; };
 		CFB7EFD91EA3085000D7A097 /* CZQFollowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB7EFD41EA3085000D7A097 /* CZQFollowCell.m */; };
 		CFB7EFDA1EA3085000D7A097 /* CZQFollowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFB7EFD51EA3085000D7A097 /* CZQFollowCell.xib */; };
@@ -152,6 +154,10 @@
 		56ED04481DF26759009C0623 /* CZQConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQConst.m; sourceTree = "<group>"; };
 		592A89307AB02FF817496E04 /* libPods-BuDeJie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BuDeJie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B2C6C491EFCF857354B100C /* Pods-BuDeJie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuDeJie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BuDeJie/Pods-BuDeJie.debug.xcconfig"; sourceTree = "<group>"; };
+		CF2A15461EBDFC1300538FE3 /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
+		CF2A15471EBDFC1300538FE3 /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
+		CF2A15491EBDFF3800538FE3 /* RouteAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteAnnotation.h; sourceTree = "<group>"; };
+		CF2A154A1EBDFF3800538FE3 /* RouteAnnotation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RouteAnnotation.mm; sourceTree = "<group>"; };
 		CF2FA41F1E41B8B400630556 /* CZQTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQTopicCell.h; sourceTree = "<group>"; };
 		CF2FA4201E41B8B400630556 /* CZQTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQTopicCell.m; sourceTree = "<group>"; };
 		CF2FA4221E41B8E900630556 /* CZQVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQVideoCell.h; sourceTree = "<group>"; };
@@ -187,7 +193,7 @@
 		CFB7EFCB1EA3085000D7A097 /* CZQFllowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQFllowViewController.h; sourceTree = "<group>"; };
 		CFB7EFCC1EA3085000D7A097 /* CZQFllowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQFllowViewController.m; sourceTree = "<group>"; };
 		CFB7EFCD1EA3085000D7A097 /* CZQNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQNewViewController.h; sourceTree = "<group>"; };
-		CFB7EFCE1EA3085000D7A097 /* CZQNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQNewViewController.m; sourceTree = "<group>"; };
+		CFB7EFCE1EA3085000D7A097 /* CZQNewViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CZQNewViewController.mm; sourceTree = "<group>"; };
 		CFB7EFD01EA3085000D7A097 /* CZQFollowItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQFollowItem.h; sourceTree = "<group>"; };
 		CFB7EFD11EA3085000D7A097 /* CZQFollowItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQFollowItem.m; sourceTree = "<group>"; };
 		CFB7EFD31EA3085000D7A097 /* CZQFollowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQFollowCell.h; sourceTree = "<group>"; };
@@ -516,6 +522,8 @@
 				5637BE431DE530AB00FDE1F2 /* UIBarButtonItem+CZQItem.m */,
 				CF6AB6901EBAB8DD00860979 /* CZQBdiduMap.h */,
 				CF6AB6911EBAB8DD00860979 /* CZQBdiduMap.mm */,
+				CF2A15461EBDFC1300538FE3 /* UIImage+Rotate.h */,
+				CF2A15471EBDFC1300538FE3 /* UIImage+Rotate.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -675,7 +683,7 @@
 				CFB7EFCB1EA3085000D7A097 /* CZQFllowViewController.h */,
 				CFB7EFCC1EA3085000D7A097 /* CZQFllowViewController.m */,
 				CFB7EFCD1EA3085000D7A097 /* CZQNewViewController.h */,
-				CFB7EFCE1EA3085000D7A097 /* CZQNewViewController.m */,
+				CFB7EFCE1EA3085000D7A097 /* CZQNewViewController.mm */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -695,6 +703,8 @@
 				CFB7EFD31EA3085000D7A097 /* CZQFollowCell.h */,
 				CFB7EFD41EA3085000D7A097 /* CZQFollowCell.m */,
 				CFB7EFD51EA3085000D7A097 /* CZQFollowCell.xib */,
+				CF2A15491EBDFF3800538FE3 /* RouteAnnotation.h */,
+				CF2A154A1EBDFF3800538FE3 /* RouteAnnotation.mm */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -899,10 +909,11 @@
 				CFB7EFAF1EA2FD9300D7A097 /* CZQFastLoginView.m in Sources */,
 				5637BE691DE692E400FDE1F2 /* CZQADItem.m in Sources */,
 				5637BE441DE530AB00FDE1F2 /* UIBarButtonItem+CZQItem.m in Sources */,
-				CFB7EFD71EA3085000D7A097 /* CZQNewViewController.m in Sources */,
+				CFB7EFD71EA3085000D7A097 /* CZQNewViewController.mm in Sources */,
 				565ECA701DF1A2300022EB9D /* CZQVideoViewController.m in Sources */,
 				5637BE471DE5457000FDE1F2 /* CZQNavigationViewController.m in Sources */,
 				5637BE201DE31A7F00FDE1F2 /* CZQEssenceViewController.m in Sources */,
+				CF2A154B1EBDFF3800538FE3 /* RouteAnnotation.mm in Sources */,
 				565ECA6D1DF1A21C0022EB9D /* CZQAllViewController.m in Sources */,
 				5637BE261DE31B0500FDE1F2 /* CZQMeViewController.m in Sources */,
 				CFB7EFD61EA3085000D7A097 /* CZQFllowViewController.m in Sources */,
@@ -915,6 +926,7 @@
 				5637BE331DE32BE200FDE1F2 /* CZQTabBarController.m in Sources */,
 				5637BE3A1DE3E49F00FDE1F2 /* CZQTabBar.m in Sources */,
 				CF2FA42D1E41B94600630556 /* CZQWoldCell.m in Sources */,
+				CF2A15481EBDFC1300538FE3 /* UIImage+Rotate.m in Sources */,
 				CFB7EFC71EA2FE2A00D7A097 /* CZQLoginAndRegisteModelView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

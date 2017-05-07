@@ -11,7 +11,11 @@
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
 #import <BaiduMapAPI_Search/BMKSearchComponent.h>//引入检索功能所有的头文件
 #import<BaiduMapAPI_Location/BMKLocationComponent.h>
+#import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
 #import <Masonry.h>
+
+#import "RouteAnnotation.h"
+#import "UIImage+Rotate.h"
 
 @interface CZQNewViewController ()<BMKMapViewDelegate, BMKPoiSearchDelegate, BMKLocationServiceDelegate, UITextFieldDelegate, BMKRouteSearchDelegate, BMKGeoCodeSearchDelegate>
 
@@ -34,9 +38,9 @@
 @property (nonatomic, strong) BMKGeoCodeSearch *geoSearcher;
 
 //自己地址坐标
-@property (nonatomic) CLLocationCoordinate2D selfLocation;
+@property (nonatomic, assign) CLLocationCoordinate2D selfLocation;
 //目标地址坐标
-@property (nonatomic) CLLocationCoordinate2D aidLocation;
+@property (nonatomic, assign) CLLocationCoordinate2D aidLocation;
 
 
 @end
@@ -373,6 +377,18 @@ errorCode:(BMKSearchErrorCode)error{
 
 #pragma mark - 路径规划
 
+- (BMKOverlayView*)mapView:(BMKMapView *)map viewForOverlay:(id<BMKOverlay>)overlay
+{
+    if ([overlay isKindOfClass:[BMKPolyline class]]) {
+        BMKPolylineView* polylineView = [[BMKPolylineView alloc] initWithOverlay:overlay];
+        polylineView.fillColor = [[UIColor alloc] initWithRed:0 green:1 blue:1 alpha:1];
+        polylineView.strokeColor = [[UIColor alloc] initWithRed:0 green:0 blue:1 alpha:0.7];
+        polylineView.lineWidth = 3.0;
+        return polylineView;
+    }
+    return nil;
+}
+
 /**
  *当选中一个annotation views时，调用此接口
  *@param mapView 地图View
@@ -423,7 +439,97 @@ errorCode:(BMKSearchErrorCode)error{
     } else {
         //检索失败
     }
+    
+    NSArray* array = [NSArray arrayWithArray:_mapView.annotations];
+    [_mapView removeAnnotations:array];
+    array = [NSArray arrayWithArray:_mapView.overlays];
+    [_mapView removeOverlays:array];
+    if (error == BMK_SEARCH_NO_ERROR) {
+        BMKWalkingRouteLine* plan = (BMKWalkingRouteLine*)[result.routes objectAtIndex:0];
+        NSInteger size = [plan.steps count];
+        int planPointCounts = 0;
+        for (int i = 0; i < size; i++) {
+            BMKWalkingStep* transitStep = [plan.steps objectAtIndex:i];
+            if(i==0){
+                RouteAnnotation* item = [[RouteAnnotation alloc]init];
+                item.coordinate = plan.starting.location;
+                item.title = @"起点";
+                item.type = 0;
+                [_mapView addAnnotation:item]; // 添加起点标注
+                
+            }
+            if(i==size-1){
+                RouteAnnotation* item = [[RouteAnnotation alloc]init];
+                item.coordinate = plan.terminal.location;
+                item.title = @"终点";
+                item.type = 1;
+                [_mapView addAnnotation:item]; // 添加起点标注
+            }
+            //添加annotation节点
+            RouteAnnotation* item = [[RouteAnnotation alloc]init];
+            item.coordinate = transitStep.entrace.location;
+            item.title = transitStep.entraceInstruction;
+            item.degree = transitStep.direction * 30;
+            item.type = 4;
+            [_mapView addAnnotation:item];
+            
+            //轨迹点总数累计
+            planPointCounts += transitStep.pointsCount;
+        }
+        
+        //轨迹点
+        BMKMapPoint * temppoints = new BMKMapPoint[planPointCounts];
+        int i = 0;
+        for (int j = 0; j < size; j++) {
+            BMKWalkingStep* transitStep = [plan.steps objectAtIndex:j];
+            int k=0;
+            for(k=0;k<transitStep.pointsCount;k++) {
+                temppoints[i].x = transitStep.points[k].x;
+                temppoints[i].y = transitStep.points[k].y;
+                i++;
+            }
+            
+        }
+        // 通过points构建BMKPolyline
+        BMKPolyline* polyLine = [BMKPolyline polylineWithPoints:temppoints count:planPointCounts];
+        [_mapView addOverlay:polyLine]; // 添加路线overlay
+        delete []temppoints;
+        [self mapViewFitPolyLine:polyLine];
+    }
 }
+
+//根据polyline设置地图范围
+- (void)mapViewFitPolyLine:(BMKPolyline *) polyLine {
+    CGFloat ltX, ltY, rbX, rbY;
+    if (polyLine.pointCount < 1) {
+        return;
+    }
+    BMKMapPoint pt = polyLine.points[0];
+    ltX = pt.x, ltY = pt.y;
+    rbX = pt.x, rbY = pt.y;
+    for (int i = 1; i < polyLine.pointCount; i++) {
+        BMKMapPoint pt = polyLine.points[i];
+        if (pt.x < ltX) {
+            ltX = pt.x;
+        }
+        if (pt.x > rbX) {
+            rbX = pt.x;
+        }
+        if (pt.y > ltY) {
+            ltY = pt.y;
+        }
+        if (pt.y < rbY) {
+            rbY = pt.y;
+        }
+    }
+    BMKMapRect rect;
+    rect.origin = BMKMapPointMake(ltX , ltY);
+    rect.size = BMKMapSizeMake(rbX - ltX, rbY - ltY);
+    [_mapView setVisibleMapRect:rect];
+    _mapView.zoomLevel = _mapView.zoomLevel - 0.3;
+}
+
+
 
 
 
