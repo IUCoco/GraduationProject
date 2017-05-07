@@ -17,6 +17,7 @@ PODS:
   - BaiduMapKit (3.3.0)
   - Masonry (1.0.2)
   - MJExtension (3.0.13)
+  - pop (1.0.9)
   - SDWebImage (4.0.0-beta2):
     - SDWebImage/Core (= 4.0.0-beta2)
   - SDWebImage/Core (4.0.0-beta2)
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - BaiduMapKit (~> 3.3.0)
   - Masonry (~> 1.0.2)
   - MJExtension (~> 3.0.13)
+  - pop (~> 1.0.9)
   - SDWebImage (~> 4.0.0-beta2)
   - SVProgressHUD (~> 2.0.3)
 
@@ -35,9 +37,10 @@ SPEC CHECKSUMS:
   BaiduMapKit: 6517f84bdca032170ee9da39985bb64eba8ed900
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   SDWebImage: e379f33106cf8d6766f970c0ef1c3fb609c94d78
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: 3fd517efdf168dd15ee02ccf09d8ec12b67796f1
+PODFILE CHECKSUM: 220e2488e134b19d2c3a7a87bc72cde7b0d15b3a
 
 COCOAPODS: 1.1.1

@@ -7,6 +7,7 @@
 //
 
 #import "CZQTabBar.h"
+#import "CZQPublishViewController.h"
 
 @interface CZQTabBar ()
 
@@ -30,6 +31,7 @@
         [btn setImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateHighlighted];
                 //按钮自适应
         [btn sizeToFit];
+        [btn addTarget:self action:@selector(publishClick) forControlEvents:UIControlEventTouchUpInside];
         //添加到自定义TabBar上面
         [self addSubview:btn];
          _publishBtn = btn;
@@ -37,6 +39,11 @@
     return _publishBtn;
 }
 
+- (void)publishClick
+{
+    CZQPublishViewController *publish = [[CZQPublishViewController alloc] init];
+    [self.window.rootViewController presentViewController:publish animated:NO completion:nil];
+}
 
 
 - (void)layoutSubviews{

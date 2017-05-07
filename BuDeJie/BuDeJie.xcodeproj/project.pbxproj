@@ -46,6 +46,18 @@
 		7B6A19A697832FB3E88CFB7D /* libPods-BuDeJie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 592A89307AB02FF817496E04 /* libPods-BuDeJie.a */; };
 		CF2A15481EBDFC1300538FE3 /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2A15471EBDFC1300538FE3 /* UIImage+Rotate.m */; };
 		CF2A154B1EBDFF3800538FE3 /* RouteAnnotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = CF2A154A1EBDFF3800538FE3 /* RouteAnnotation.mm */; };
+		CF2A15691EBEC07700538FE3 /* CZQPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF2A15681EBEC07700538FE3 /* CZQPublishViewController.xib */; };
+		CF2A158C1EBEC66800538FE3 /* XMGPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2A15821EBEC66800538FE3 /* XMGPlaceholderTextView.m */; };
+		CF2A158D1EBEC66800538FE3 /* XMGPostWordToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2A15841EBEC66800538FE3 /* XMGPostWordToolbar.m */; };
+		CF2A158E1EBEC66800538FE3 /* XMGPostWordToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF2A15851EBEC66800538FE3 /* XMGPostWordToolbar.xib */; };
+		CF2A158F1EBEC66800538FE3 /* XMGPublishButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2A15871EBEC66800538FE3 /* XMGPublishButton.m */; };
+		CF2A15901EBEC66800538FE3 /* XMGTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2A15891EBEC66800538FE3 /* XMGTagButton.m */; };
+		CF2A15911EBEC66800538FE3 /* XMGTagTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2A158B1EBEC66800538FE3 /* XMGTagTextField.m */; };
+		CF2A15961EBEC67800538FE3 /* XMGAddTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2A15931EBEC67800538FE3 /* XMGAddTagViewController.m */; };
+		CF2A15971EBEC67800538FE3 /* XMGPostWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2A15951EBEC67800538FE3 /* XMGPostWordViewController.m */; };
+		CF2A159A1EBEC84200538FE3 /* UIView+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2A15991EBEC84200538FE3 /* UIView+XMGExtension.m */; };
+		CF2A159D1EBEC8D700538FE3 /* XMGConst.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2A159C1EBEC8D700538FE3 /* XMGConst.m */; };
+		CF2A15A31EBECA3F00538FE3 /* UITextField+XMGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2A15A21EBECA3F00538FE3 /* UITextField+XMGExtension.m */; };
 		CF2FA4211E41B8B400630556 /* CZQTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2FA4201E41B8B400630556 /* CZQTopicCell.m */; };
 		CF2FA4241E41B8E900630556 /* CZQVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2FA4231E41B8E900630556 /* CZQVideoCell.m */; };
 		CF2FA4271E41B90000630556 /* CZQVoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2FA4261E41B90000630556 /* CZQVoiceCell.m */; };
@@ -158,6 +170,28 @@
 		CF2A15471EBDFC1300538FE3 /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
 		CF2A15491EBDFF3800538FE3 /* RouteAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteAnnotation.h; sourceTree = "<group>"; };
 		CF2A154A1EBDFF3800538FE3 /* RouteAnnotation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RouteAnnotation.mm; sourceTree = "<group>"; };
+		CF2A15681EBEC07700538FE3 /* CZQPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CZQPublishViewController.xib; sourceTree = "<group>"; };
+		CF2A15811EBEC66800538FE3 /* XMGPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGPlaceholderTextView.h; sourceTree = "<group>"; };
+		CF2A15821EBEC66800538FE3 /* XMGPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGPlaceholderTextView.m; sourceTree = "<group>"; };
+		CF2A15831EBEC66800538FE3 /* XMGPostWordToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGPostWordToolbar.h; sourceTree = "<group>"; };
+		CF2A15841EBEC66800538FE3 /* XMGPostWordToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGPostWordToolbar.m; sourceTree = "<group>"; };
+		CF2A15851EBEC66800538FE3 /* XMGPostWordToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMGPostWordToolbar.xib; sourceTree = "<group>"; };
+		CF2A15861EBEC66800538FE3 /* XMGPublishButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGPublishButton.h; sourceTree = "<group>"; };
+		CF2A15871EBEC66800538FE3 /* XMGPublishButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGPublishButton.m; sourceTree = "<group>"; };
+		CF2A15881EBEC66800538FE3 /* XMGTagButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTagButton.h; sourceTree = "<group>"; };
+		CF2A15891EBEC66800538FE3 /* XMGTagButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTagButton.m; sourceTree = "<group>"; };
+		CF2A158A1EBEC66800538FE3 /* XMGTagTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGTagTextField.h; sourceTree = "<group>"; };
+		CF2A158B1EBEC66800538FE3 /* XMGTagTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGTagTextField.m; sourceTree = "<group>"; };
+		CF2A15921EBEC67800538FE3 /* XMGAddTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGAddTagViewController.h; sourceTree = "<group>"; };
+		CF2A15931EBEC67800538FE3 /* XMGAddTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGAddTagViewController.m; sourceTree = "<group>"; };
+		CF2A15941EBEC67800538FE3 /* XMGPostWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGPostWordViewController.h; sourceTree = "<group>"; };
+		CF2A15951EBEC67800538FE3 /* XMGPostWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGPostWordViewController.m; sourceTree = "<group>"; };
+		CF2A15981EBEC84200538FE3 /* UIView+XMGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XMGExtension.h"; sourceTree = "<group>"; };
+		CF2A15991EBEC84200538FE3 /* UIView+XMGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XMGExtension.m"; sourceTree = "<group>"; };
+		CF2A159B1EBEC8D700538FE3 /* XMGConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGConst.h; sourceTree = "<group>"; };
+		CF2A159C1EBEC8D700538FE3 /* XMGConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGConst.m; sourceTree = "<group>"; };
+		CF2A15A11EBECA3F00538FE3 /* UITextField+XMGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+XMGExtension.h"; sourceTree = "<group>"; };
+		CF2A15A21EBECA3F00538FE3 /* UITextField+XMGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+XMGExtension.m"; sourceTree = "<group>"; };
 		CF2FA41F1E41B8B400630556 /* CZQTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQTopicCell.h; sourceTree = "<group>"; };
 		CF2FA4201E41B8B400630556 /* CZQTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQTopicCell.m; sourceTree = "<group>"; };
 		CF2FA4221E41B8E900630556 /* CZQVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQVideoCell.h; sourceTree = "<group>"; };
@@ -434,6 +468,8 @@
 				5637BE411DE4002800FDE1F2 /* BuDeJie.pch */,
 				56ED04471DF26759009C0623 /* CZQConst.h */,
 				56ED04481DF26759009C0623 /* CZQConst.m */,
+				CF2A159B1EBEC8D700538FE3 /* XMGConst.h */,
+				CF2A159C1EBEC8D700538FE3 /* XMGConst.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -451,8 +487,13 @@
 		5637BE191DE3194300FDE1F2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CF2A15921EBEC67800538FE3 /* XMGAddTagViewController.h */,
+				CF2A15931EBEC67800538FE3 /* XMGAddTagViewController.m */,
+				CF2A15941EBEC67800538FE3 /* XMGPostWordViewController.h */,
+				CF2A15951EBEC67800538FE3 /* XMGPostWordViewController.m */,
 				5637BE2A1DE31B6300FDE1F2 /* CZQPublishViewController.h */,
 				5637BE2B1DE31B6300FDE1F2 /* CZQPublishViewController.m */,
+				CF2A15681EBEC07700538FE3 /* CZQPublishViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -467,6 +508,17 @@
 		5637BE1B1DE3194300FDE1F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CF2A15811EBEC66800538FE3 /* XMGPlaceholderTextView.h */,
+				CF2A15821EBEC66800538FE3 /* XMGPlaceholderTextView.m */,
+				CF2A15831EBEC66800538FE3 /* XMGPostWordToolbar.h */,
+				CF2A15841EBEC66800538FE3 /* XMGPostWordToolbar.m */,
+				CF2A15851EBEC66800538FE3 /* XMGPostWordToolbar.xib */,
+				CF2A15861EBEC66800538FE3 /* XMGPublishButton.h */,
+				CF2A15871EBEC66800538FE3 /* XMGPublishButton.m */,
+				CF2A15881EBEC66800538FE3 /* XMGTagButton.h */,
+				CF2A15891EBEC66800538FE3 /* XMGTagButton.m */,
+				CF2A158A1EBEC66800538FE3 /* XMGTagTextField.h */,
+				CF2A158B1EBEC66800538FE3 /* XMGTagTextField.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -524,6 +576,10 @@
 				CF6AB6911EBAB8DD00860979 /* CZQBdiduMap.mm */,
 				CF2A15461EBDFC1300538FE3 /* UIImage+Rotate.h */,
 				CF2A15471EBDFC1300538FE3 /* UIImage+Rotate.m */,
+				CF2A15981EBEC84200538FE3 /* UIView+XMGExtension.h */,
+				CF2A15991EBEC84200538FE3 /* UIView+XMGExtension.m */,
+				CF2A15A11EBECA3F00538FE3 /* UITextField+XMGExtension.h */,
+				CF2A15A21EBECA3F00538FE3 /* UITextField+XMGExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -796,6 +852,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF2A158E1EBEC66800538FE3 /* XMGPostWordToolbar.xib in Resources */,
 				5637BDDD1DE3075E00FDE1F2 /* LaunchScreen.storyboard in Resources */,
 				5637BE641DE5CD8300FDE1F2 /* LaunchImage-800-Portrait-736h@3x.png in Resources */,
 				5637BDDA1DE3075E00FDE1F2 /* Assets.xcassets in Resources */,
@@ -807,6 +864,7 @@
 				5637BE631DE5CD8300FDE1F2 /* LaunchImage-800-667h@2x.png in Resources */,
 				5637BE601DE5CD8300FDE1F2 /* LaunchImage-568h@2x.png in Resources */,
 				CFBB1D151E4424A900DB98FD /* CZQTopicVoiceView.xib in Resources */,
+				CF2A15691EBEC07700538FE3 /* CZQPublishViewController.xib in Resources */,
 				CFB7EFDA1EA3085000D7A097 /* CZQFollowCell.xib in Resources */,
 				562619C81DEC26E70081F74B /* CZQCollectionViewCell.xib in Resources */,
 				5637BE651DE5CD8300FDE1F2 /* LaunchImage.png in Resources */,
@@ -895,17 +953,23 @@
 				CFBB1D111E435FFC00DB98FD /* CZQTopicPictureView.m in Sources */,
 				CF2FA4241E41B8E900630556 /* CZQVideoCell.m in Sources */,
 				CF6AB6921EBAB8DD00860979 /* CZQBdiduMap.mm in Sources */,
+				CF2A158F1EBEC66800538FE3 /* XMGPublishButton.m in Sources */,
 				CFBB1D0C1E435FC700DB98FD /* CZQTopicVoiceView.m in Sources */,
 				CFB7EFAE1EA2FD9300D7A097 /* CZQFastLoginButton.m in Sources */,
+				CF2A15911EBEC66800538FE3 /* XMGTagTextField.m in Sources */,
+				CF2A159A1EBEC84200538FE3 /* UIView+XMGExtension.m in Sources */,
+				CF2A158C1EBEC66800538FE3 /* XMGPlaceholderTextView.m in Sources */,
 				CF2FA4271E41B90000630556 /* CZQVoiceCell.m in Sources */,
 				565ECA731DF1A2410022EB9D /* CZQVoiceViewController.m in Sources */,
 				CFB7EFD91EA3085000D7A097 /* CZQFollowCell.m in Sources */,
 				5637BE561DE5C3EA00FDE1F2 /* CZQADViewController.m in Sources */,
+				CF2A15901EBEC66800538FE3 /* XMGTagButton.m in Sources */,
 				5637BE1D1DE3194300FDE1F2 /* main.m in Sources */,
 				5637BE4E1DE5876800FDE1F2 /* CZQSettingViewController.m in Sources */,
 				5637BE371DE3318E00FDE1F2 /* UIImage+CZQImage.m in Sources */,
 				CF8223DC1EB9C89C00DCCF91 /* AppDelegate.m in Sources */,
 				565ECA761DF1A2520022EB9D /* CZQPictureViewController.m in Sources */,
+				CF2A159D1EBEC8D700538FE3 /* XMGConst.m in Sources */,
 				CFB7EFAF1EA2FD9300D7A097 /* CZQFastLoginView.m in Sources */,
 				5637BE691DE692E400FDE1F2 /* CZQADItem.m in Sources */,
 				5637BE441DE530AB00FDE1F2 /* UIBarButtonItem+CZQItem.m in Sources */,
@@ -913,16 +977,20 @@
 				565ECA701DF1A2300022EB9D /* CZQVideoViewController.m in Sources */,
 				5637BE471DE5457000FDE1F2 /* CZQNavigationViewController.m in Sources */,
 				5637BE201DE31A7F00FDE1F2 /* CZQEssenceViewController.m in Sources */,
+				CF2A15A31EBECA3F00538FE3 /* UITextField+XMGExtension.m in Sources */,
 				CF2A154B1EBDFF3800538FE3 /* RouteAnnotation.mm in Sources */,
 				565ECA6D1DF1A21C0022EB9D /* CZQAllViewController.m in Sources */,
 				5637BE261DE31B0500FDE1F2 /* CZQMeViewController.m in Sources */,
 				CFB7EFD61EA3085000D7A097 /* CZQFllowViewController.m in Sources */,
 				CF2FA4211E41B8B400630556 /* CZQTopicCell.m in Sources */,
+				CF2A15971EBEC67800538FE3 /* XMGPostWordViewController.m in Sources */,
 				565ECA641DF1668E0022EB9D /* CZQTitleButton.m in Sources */,
 				562619CB1DEC2FF50081F74B /* CZQCollectionItem.m in Sources */,
 				CFB7EFB11EA2FD9300D7A097 /* CZQLoginTextF.m in Sources */,
+				CF2A15961EBEC67800538FE3 /* XMGAddTagViewController.m in Sources */,
 				CFAAF0621E3E0E7500ED63A7 /* CZQTopic.m in Sources */,
 				565ECA791DF1A2750022EB9D /* CZQWordViewController.m in Sources */,
+				CF2A158D1EBEC66800538FE3 /* XMGPostWordToolbar.m in Sources */,
 				5637BE331DE32BE200FDE1F2 /* CZQTabBarController.m in Sources */,
 				5637BE3A1DE3E49F00FDE1F2 /* CZQTabBar.m in Sources */,
 				CF2FA42D1E41B94600630556 /* CZQWoldCell.m in Sources */,
