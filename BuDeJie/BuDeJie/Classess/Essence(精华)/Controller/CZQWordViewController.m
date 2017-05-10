@@ -7,6 +7,7 @@
 //
 
 #import "CZQWordViewController.h"
+#import <Masonry.h>
 
 @interface CZQWordViewController ()
 
@@ -21,11 +22,13 @@
     self.tableView.contentInset = UIEdgeInsetsMake(CZQTitleViewH, 0, CZQTabBarH + CZQContentInsetH, 0);
     //*********设置滚动条的内边距
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     //********添加监听CZQTabBarButtonDidRepeatClickNotification
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDidRepeatClick) name:CZQTabBarButtonDidRepeatClickNotification object:nil];
     //**********添加监听CZQTitleButtonDidRepeatClickNotification
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonDidRepeatClick) name:CZQTitleButtonDidRepeatClickNotification object:nil];
+    [self setupCompanyInfoView];
 }
 
 //**********监听事件CZQTabBarButtonDidRepeatClickNotification
@@ -60,6 +63,50 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - 公司信息
+
+- (void)setupCompanyInfoView {
+    
+    UIView *bgView = [[UIView alloc] initWithFrame:self.tableView.frame];
+    bgView.backgroundColor = [UIColor whiteColor];
+    self.tableView.tableHeaderView = bgView;
+    
+    UILabel *companyNameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    companyNameLabel.numberOfLines = 0;
+    companyNameLabel.textAlignment = NSTextAlignmentCenter;
+    companyNameLabel.font = [UIFont boldSystemFontOfSize:20];
+    companyNameLabel.text = @"杭州电子科技大学";
+    [bgView addSubview:companyNameLabel];
+    [companyNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(bgView.mas_top).offset(30);
+        make.left.equalTo(bgView.mas_left).offset(30);
+        make.right.equalTo(bgView.mas_right).offset(-30);
+        make.height.mas_equalTo(30);
+    }];
+    
+    UILabel *companyInfoLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    companyInfoLabel.numberOfLines = 0;
+    companyInfoLabel.text = @"        杭州电子科技大学（Hangzhou Dianzi University），简称杭电，是浙江省人民政府与国防科技工业局共建的教学研究型大学，是浙江省首批重点建设的5所高校之一。\n        学校前身为创建于1956年的杭州航空工业财经学校，是中国较早成立的一所以信息科技（IT）学科为主导的高等院校，先后隶属于机械工业部、电子工业部和信息产业部等中央部委，1980年经国务院批准设立杭州电子工业学院，2004年更名为杭州电子科技大学";
+    [bgView addSubview:companyInfoLabel];
+    [companyInfoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(companyNameLabel.mas_bottom).offset(30);
+        make.left.equalTo(bgView.mas_left).offset(30);
+        make.right.equalTo(bgView.mas_right).offset(-30);
+    }];
+    
+    UILabel *copyrightLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    copyrightLabel.numberOfLines = 0;
+    copyrightLabel.font = [UIFont systemFontOfSize:10];
+    copyrightLabel.text = @"Copyright© 2010 杭州电子科技大学版权所有 All right reserved";
+    [bgView addSubview:copyrightLabel];
+    [copyrightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(bgView.mas_left).offset(30);
+        make.bottom.equalTo(bgView.mas_bottom).offset(-30-CZQTabBarH-CZQContentInsetH);
+        make.right.equalTo(bgView.mas_right).offset(-30);
+    }];
+}
+
+#if 0
 #pragma mark - 数据源
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -77,6 +124,6 @@
     cell.textLabel.text = [NSString stringWithFormat:@"%@-%zd", self.class, indexPath.row];
     return cell;
 }
-
+#endif
 
 @end
