@@ -82,6 +82,9 @@
         NSLog(@"manager start succeed!");
     }
     
+    //learncloud
+    [AVOSCloud setApplicationId:@"JE9lKxfz4OgsmNDph8EAaQpr-gzGzoHsz" clientKey:@"dA0DpObo713wxJUDh3KcONG5"];
+    
     return YES;
 }
 
