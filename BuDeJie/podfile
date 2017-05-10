@@ -8,5 +8,8 @@ pod 'SVProgressHUD', '~> 2.0.3'
 pod 'BaiduMapKit', '~> 3.3.0'
 pod 'Masonry', '~> 1.0.2'
 pod 'pop', '~> 1.0.9'
+pod 'AVOSCloud'
+pod 'AVOSCloudIM'
+pod 'AVOSCloudCrashReporting'
 
 end
