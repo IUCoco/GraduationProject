@@ -88,6 +88,7 @@
 		CFBB1D171E44ABC000DB98FD /* CZQTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFBB1D161E44ABC000DB98FD /* CZQTopicVideoView.xib */; };
 		CFBB1D191E45B69700DB98FD /* CZQTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFBB1D181E45B69700DB98FD /* CZQTopicPictureView.xib */; };
 		CFF5D3871EC2F7F900CA1BAB /* CZQAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF5D3861EC2F7F900CA1BAB /* CZQAllViewController.m */; };
+		CFF5D38B1EC3055000CA1BAB /* collection.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFF5D38A1EC3055000CA1BAB /* collection.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -242,6 +243,7 @@
 		CFBB1D181E45B69700DB98FD /* CZQTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CZQTopicPictureView.xib; sourceTree = "<group>"; };
 		CFF5D3851EC2F7F900CA1BAB /* CZQAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQAllViewController.h; sourceTree = "<group>"; };
 		CFF5D3861EC2F7F900CA1BAB /* CZQAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQAllViewController.m; sourceTree = "<group>"; };
+		CFF5D38A1EC3055000CA1BAB /* collection.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = collection.plist; sourceTree = "<group>"; };
 		E1F6ED8581295BCDBBEB66C6 /* Pods-BuDeJie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuDeJie.release.xcconfig"; path = "Pods/Target Support Files/Pods-BuDeJie/Pods-BuDeJie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -446,6 +448,7 @@
 			children = (
 				562619C91DEC2FF50081F74B /* CZQCollectionItem.h */,
 				562619CA1DEC2FF50081F74B /* CZQCollectionItem.m */,
+				CFF5D38A1EC3055000CA1BAB /* collection.plist */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -855,6 +858,7 @@
 				CF2A158E1EBEC66800538FE3 /* XMGPostWordToolbar.xib in Resources */,
 				5637BDDD1DE3075E00FDE1F2 /* LaunchScreen.storyboard in Resources */,
 				5637BE641DE5CD8300FDE1F2 /* LaunchImage-800-Portrait-736h@3x.png in Resources */,
+				CFF5D38B1EC3055000CA1BAB /* collection.plist in Resources */,
 				5637BDDA1DE3075E00FDE1F2 /* Assets.xcassets in Resources */,
 				CFBB1D191E45B69700DB98FD /* CZQTopicPictureView.xib in Resources */,
 				5637BE661DE5CD8300FDE1F2 /* LaunchImage@2x.png in Resources */,

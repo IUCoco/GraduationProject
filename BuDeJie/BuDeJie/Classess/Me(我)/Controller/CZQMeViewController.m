@@ -33,6 +33,25 @@ static CGFloat margin = 1;
 
 @implementation CZQMeViewController
 
+-(NSMutableArray *)collectionItemsArr {
+    if (!_collectionItemsArr) {
+        _collectionItemsArr = [CZQCollectionItem mj_objectArrayWithFilename:@"collection.plist"];
+        //处理请求完成数据，重新填充获得_collectionItemsArr的count，填充缺少的item
+        [self resolveData];
+        //------------------设置collectionView的高度-----------------
+        //rows = ((count - 1） / cols) + 1
+        NSInteger count = _collectionItemsArr.count;
+        NSInteger rows = ((count - 1) / cols) + 1;
+        self.collectionView.czq_hight = rows * itemWH;
+        //重新制定tableView滚动范围,重新设置下footerView,tableView的滚动范围由内容系统自行计算
+        self.tableView.tableFooterView = self.collectionView;
+        //------------------设置collectionView的高度-----------------
+        //刷新collectionView数据
+        [self.collectionView reloadData];
+    }
+    return _collectionItemsArr;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -46,7 +65,7 @@ static CGFloat margin = 1;
     //设置footView的底部视图九宫格
     [self setUpFootView];
     //加载数据
-    [self setUpData];
+//    [self setUpData];
     //处理tableView的分组样式
     self.tableView.sectionFooterHeight = 25;
     self.tableView.sectionHeaderHeight = 0;
