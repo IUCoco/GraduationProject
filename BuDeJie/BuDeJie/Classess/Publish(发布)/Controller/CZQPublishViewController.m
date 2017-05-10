@@ -43,9 +43,6 @@ static CGFloat const XMGSpringFactor = 10;
         _times = @[@(5 * interval),
                    @(4 * interval),
                    @(3 * interval),
-                   @(2 * interval),
-                   @(0 * interval),
-                   @(1 * interval),
                    @(6 * interval)]; // 标语的动画时间
     }
     return _times;
@@ -68,8 +65,8 @@ static CGFloat const XMGSpringFactor = 10;
 - (void)setupButtons
 {
     // 数据
-    NSArray *images = @[@"publish-video", @"publish-picture", @"publish-text", @"publish-audio", @"publish-review", @"publish-offline"];
-    NSArray *titles = @[@"发视频", @"发图片", @"发段子", @"发声音", @"审帖", @"离线下载"];
+    NSArray *images = @[@"mine-my-post", @"mine-icon-activity", @"mine-icon-feedback"];
+    NSArray *titles = @[@"发周报", @"打卡", @"待办事项"];
     
     // 一些参数
     NSUInteger count = images.count;
