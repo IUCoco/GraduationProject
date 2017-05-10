@@ -70,7 +70,7 @@
     scrollView.pagingEnabled = YES;
     //取消点击状态栏自动回滚到最顶部的效果 *************  only if there's one on-screen scroll
     scrollView.scrollsToTop = NO;
-    scrollView.backgroundColor = [UIColor orangeColor];
+    scrollView.backgroundColor = [UIColor whiteColor];
     //设置水平方向可滚动的大小为  子控制器的个数 * self的宽度
     scrollView.contentSize = CGSizeMake(scrollView.czq_with * count, 0);
     //设置代理监听滑动
@@ -113,7 +113,8 @@
 //添加标题栏按钮
 - (void)setUpTitleBtn{
     //按钮文字数组
-    NSArray *btnTitleArr = @[@"全部", @"视频", @"声音", @"图片", @"段子"];
+//    NSArray *btnTitleArr = @[@"全部", @"视频", @"声音", @"图片", @"段子"];
+    NSArray *btnTitleArr = @[@"客户", @"计划", @"打卡", @"周报", @"公司"];
     NSInteger count = btnTitleArr.count;
     //按钮尺寸
     CGFloat titleBtnW = CZQScreenWith / count;
@@ -262,7 +263,7 @@
 //    UIImage *centerImage = [UIImage imageNamed:@"MainTitle"];
 //    UIImageView *centerImageView = [[UIImageView alloc] initWithImage:centerImage];
 //    self.navigationItem.titleView = centerImageView;
-    self.navigationItem.title = @"精华";
+    self.navigationItem.title = @"首页";
     
     
 }

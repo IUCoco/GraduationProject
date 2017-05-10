@@ -37,7 +37,6 @@
 		5637BE661DE5CD8300FDE1F2 /* LaunchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5637BE5F1DE5CD8300FDE1F2 /* LaunchImage@2x.png */; };
 		5637BE691DE692E400FDE1F2 /* CZQADItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5637BE681DE692E400FDE1F2 /* CZQADItem.m */; };
 		565ECA641DF1668E0022EB9D /* CZQTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 565ECA631DF1668E0022EB9D /* CZQTitleButton.m */; };
-		565ECA6D1DF1A21C0022EB9D /* CZQAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565ECA6C1DF1A21C0022EB9D /* CZQAllViewController.m */; };
 		565ECA701DF1A2300022EB9D /* CZQVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565ECA6F1DF1A2300022EB9D /* CZQVideoViewController.m */; };
 		565ECA731DF1A2410022EB9D /* CZQVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565ECA721DF1A2400022EB9D /* CZQVoiceViewController.m */; };
 		565ECA761DF1A2520022EB9D /* CZQPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565ECA751DF1A2520022EB9D /* CZQPictureViewController.m */; };
@@ -88,6 +87,7 @@
 		CFBB1D151E4424A900DB98FD /* CZQTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFBB1D141E4424A900DB98FD /* CZQTopicVoiceView.xib */; };
 		CFBB1D171E44ABC000DB98FD /* CZQTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFBB1D161E44ABC000DB98FD /* CZQTopicVideoView.xib */; };
 		CFBB1D191E45B69700DB98FD /* CZQTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFBB1D181E45B69700DB98FD /* CZQTopicPictureView.xib */; };
+		CFF5D3871EC2F7F900CA1BAB /* CZQAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF5D3861EC2F7F900CA1BAB /* CZQAllViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,8 +152,6 @@
 		5637BE681DE692E400FDE1F2 /* CZQADItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQADItem.m; sourceTree = "<group>"; };
 		565ECA621DF1668E0022EB9D /* CZQTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQTitleButton.h; sourceTree = "<group>"; };
 		565ECA631DF1668E0022EB9D /* CZQTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQTitleButton.m; sourceTree = "<group>"; };
-		565ECA6B1DF1A21C0022EB9D /* CZQAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQAllViewController.h; sourceTree = "<group>"; };
-		565ECA6C1DF1A21C0022EB9D /* CZQAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQAllViewController.m; sourceTree = "<group>"; };
 		565ECA6E1DF1A2300022EB9D /* CZQVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQVideoViewController.h; sourceTree = "<group>"; };
 		565ECA6F1DF1A2300022EB9D /* CZQVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQVideoViewController.m; sourceTree = "<group>"; };
 		565ECA711DF1A2400022EB9D /* CZQVoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQVoiceViewController.h; sourceTree = "<group>"; };
@@ -242,6 +240,8 @@
 		CFBB1D141E4424A900DB98FD /* CZQTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CZQTopicVoiceView.xib; sourceTree = "<group>"; };
 		CFBB1D161E44ABC000DB98FD /* CZQTopicVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CZQTopicVideoView.xib; sourceTree = "<group>"; };
 		CFBB1D181E45B69700DB98FD /* CZQTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CZQTopicPictureView.xib; sourceTree = "<group>"; };
+		CFF5D3851EC2F7F900CA1BAB /* CZQAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQAllViewController.h; sourceTree = "<group>"; };
+		CFF5D3861EC2F7F900CA1BAB /* CZQAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQAllViewController.m; sourceTree = "<group>"; };
 		E1F6ED8581295BCDBBEB66C6 /* Pods-BuDeJie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuDeJie.release.xcconfig"; path = "Pods/Target Support Files/Pods-BuDeJie/Pods-BuDeJie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -369,8 +369,8 @@
 			children = (
 				5637BE1E1DE31A7F00FDE1F2 /* CZQEssenceViewController.h */,
 				5637BE1F1DE31A7F00FDE1F2 /* CZQEssenceViewController.m */,
-				565ECA6B1DF1A21C0022EB9D /* CZQAllViewController.h */,
-				565ECA6C1DF1A21C0022EB9D /* CZQAllViewController.m */,
+				CFF5D3851EC2F7F900CA1BAB /* CZQAllViewController.h */,
+				CFF5D3861EC2F7F900CA1BAB /* CZQAllViewController.m */,
 				565ECA6E1DF1A2300022EB9D /* CZQVideoViewController.h */,
 				565ECA6F1DF1A2300022EB9D /* CZQVideoViewController.m */,
 				565ECA711DF1A2400022EB9D /* CZQVoiceViewController.h */,
@@ -979,9 +979,9 @@
 				5637BE201DE31A7F00FDE1F2 /* CZQEssenceViewController.m in Sources */,
 				CF2A15A31EBECA3F00538FE3 /* UITextField+XMGExtension.m in Sources */,
 				CF2A154B1EBDFF3800538FE3 /* RouteAnnotation.mm in Sources */,
-				565ECA6D1DF1A21C0022EB9D /* CZQAllViewController.m in Sources */,
 				5637BE261DE31B0500FDE1F2 /* CZQMeViewController.m in Sources */,
 				CFB7EFD61EA3085000D7A097 /* CZQFllowViewController.m in Sources */,
+				CFF5D3871EC2F7F900CA1BAB /* CZQAllViewController.m in Sources */,
 				CF2FA4211E41B8B400630556 /* CZQTopicCell.m in Sources */,
 				CF2A15971EBEC67800538FE3 /* XMGPostWordViewController.m in Sources */,
 				565ECA641DF1668E0022EB9D /* CZQTitleButton.m in Sources */,

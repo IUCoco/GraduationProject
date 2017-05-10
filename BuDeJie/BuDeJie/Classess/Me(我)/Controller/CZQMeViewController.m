@@ -64,7 +64,8 @@ static CGFloat margin = 1;
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
 //        NSLog(@"%@", responseObject);
         //写入plist
-//        [responseObject writeToFile:@"/Users/chenzhiqiang/Desktop/collection.plist" atomically:YES];
+//        BOOL fileN = [responseObject writeToFile:@"/Users/kikyo/Desktop/collection1.plist" atomically:YES];
+//        CZQAFNWriteToPlist(@"collection");
         //字典数组转模型数组 url(跳转地址) name icon(图片地址)
         NSArray *dataArr = responseObject[@"square_list"];
         _collectionItemsArr = [CZQCollectionItem mj_objectArrayWithKeyValuesArray:dataArr];

@@ -107,7 +107,7 @@
     //--------------------------问题 图片被自动渲染 字体较大 发布按钮图片显示不出来---------------------------------------------
     //essenceNVC 精华
     UINavigationController *essenceNVC = self.childViewControllers[0];
-    essenceNVC.tabBarItem.title = @"精华";
+    essenceNVC.tabBarItem.title = @"首页";
     essenceNVC.tabBarItem.image = [UIImage imageOriginalWithName:@"tabBar_essence_icon"];
     essenceNVC.tabBarItem.selectedImage = [UIImage imageOriginalWithName:@"tabBar_essence_click_icon"];
     //newNVC 新帖
