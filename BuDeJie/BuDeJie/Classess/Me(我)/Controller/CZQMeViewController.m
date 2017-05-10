@@ -13,6 +13,7 @@
 #import "CZQCollectionItem.h"
 #import "CZQCollectionViewCell.h"
 #import <SafariServices/SafariServices.h>
+#import "CZQRegisterAndLoginViewController.h"
 
 
 static NSString * const ID = @"collectionCell";
@@ -211,6 +212,21 @@ static CGFloat margin = 1;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - UITableView
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"++++++%ld----", indexPath.row);
+    if (indexPath.section == 0) {
+        CZQLog(@"登录注册");
+        CZQRegisterAndLoginViewController *reginAndLoginVC = [[CZQRegisterAndLoginViewController alloc] init];
+        //跳转至注册登录界面 modal效果
+        [self presentViewController:reginAndLoginVC animated:YES completion:nil];
+    }else if (indexPath.section == 1) {
+        CZQLog(@"名片扫描");
+    }
+}
+
+
 
 #pragma mark - 设置导航条
 - (void)setUpNavBar{
