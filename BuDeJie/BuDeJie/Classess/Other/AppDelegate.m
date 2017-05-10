@@ -12,6 +12,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import <UserNotifications/UserNotifications.h>
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
+#import <AVOSCloud.h>
 
 #define LOCAL_PUSH_TEXT  @[@"要下班了快来签到吧！"]
 
