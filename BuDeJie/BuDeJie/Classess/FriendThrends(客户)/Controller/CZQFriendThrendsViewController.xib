@@ -59,7 +59,7 @@
                 <constraint firstItem="KNz-zD-zBM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Tuf-ls-Hgh"/>
                 <constraint firstItem="7NO-ds-kdH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qxH-s7-lCd"/>
             </constraints>
-            <point key="canvasLocation" x="-2" y="-157"/>
+            <point key="canvasLocation" x="-221" y="-151"/>
         </view>
     </objects>
     <resources>

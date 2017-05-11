@@ -13,6 +13,7 @@
 #import "CZQVoiceViewController.h"
 #import "CZQPictureViewController.h"
 #import "CZQWordViewController.h"
+#import <Masonry.h>
 
 
 #define CZQColor(r,g,b) [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:1]
@@ -27,6 +28,14 @@
 @property(nonatomic, weak)UIView *underLine;
 //记录所有的scrollView
 @property(nonatomic, weak)UIScrollView *scrollView;
+//记录登录成功与否状态
+@property (nonatomic, assign, getter=isLoginSuccess) BOOL loginSuccess;
+//判断是否初始化过所有子控件
+@property (nonatomic, assign, getter=isSetupSubViews) BOOL setupSubViews;
+//判断是否初始化过提示登录view
+@property (nonatomic, assign, getter=isSetupHintLoginViews) BOOL setupHintLoginViews;
+//提示登录bgView
+@property (nonatomic, strong) UIView *hintLoginView;
 
 @end
 
@@ -35,7 +44,72 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //添加通知
+    [self addObersvers];
     self.view.backgroundColor = [UIColor redColor];
+//    [self setSubViews];
+//    //初始化子控制器
+//    [self setUpChildViewContrS];
+//    //设置导航条
+//    [self setUpNavBar];
+//    //添加ScrollerView
+//    [self setUpScrollView];
+//    //添加标题栏
+//    [self setUpTitleView];
+//    //创建第零个子控制器
+//    [self addChildVCViewIntoScrollView:0];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    if (self.isLoginSuccess) {
+        if (self.isSetupSubViews) return;
+        //移除提示登录view
+        [self.hintLoginView removeFromSuperview];
+//        [self.view layoutIfNeeded];
+        
+        [self setSubViews];
+    }else{
+        if (self.isSetupHintLoginViews) return;
+        [self setupHintLoginView];
+    }
+    
+}
+
+//设置提示页面
+- (void)setupHintLoginView {
+    self.setupHintLoginViews = YES;
+    UIView *hintLoginView = [[UIView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:hintLoginView];
+    self.hintLoginView = hintLoginView;
+    
+    UIImageView *smallImageV = [[UIImageView alloc] initWithFrame:CGRectZero];
+    smallImageV.image = [UIImage imageNamed:@"defineEmotionGroup"];
+    [hintLoginView addSubview:smallImageV];
+    [smallImageV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.centerY.equalTo(self.view.mas_centerY).offset(-60);
+        make.width.mas_equalTo(80);
+        make.height.mas_equalTo(80);
+    }];
+    
+    UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    descriptionLabel.numberOfLines = 0;
+    descriptionLabel.textAlignment = NSTextAlignmentCenter;
+    descriptionLabel.font = [UIFont systemFontOfSize:15];
+    descriptionLabel.text = @"登陆后即可查看更多消息~~~\n快快登录吧！";
+    [hintLoginView addSubview:descriptionLabel];
+    [descriptionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.centerY.equalTo(self.view.mas_centerY).offset(30);
+        make.left.equalTo(self.view.mas_left).offset(30);
+        make.right.equalTo(self.view.mas_right).offset(-30);
+        
+    }];
+}
+
+- (void)setSubViews {
+    self.setupSubViews = YES;
     //初始化子控制器
     [self setUpChildViewContrS];
     //设置导航条
@@ -230,11 +304,25 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+#pragma mark - privateMethod
+//注册通知
+- (void)addObersvers {
+    //登录成功
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"LOGIN_SUCCESS" object:nil];
+}
+//移除通知
+- (void)removeObservers {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"LOGINBTN_CLICK" object:nil];
 }
 
+- (void)loginSuccess {
+    self.loginSuccess = YES;
+}
+
+- (void)dealloc {
+    [self removeObservers];
+}
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{

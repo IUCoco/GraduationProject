@@ -35,6 +35,9 @@ static CGFloat margin = 1;
 //用户头像
 @property (weak, nonatomic) IBOutlet UIImageView *headPortraitImageV;
 
+//记录登录成功与否状态
+@property (nonatomic, assign, getter=isLoginSuccess) BOOL loginSuccess;
+
 @end
 
 @implementation CZQMeViewController
@@ -223,13 +226,15 @@ static CGFloat margin = 1;
 #pragma mark - UITableView
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"++++++%ld----", indexPath.row);
-    if (indexPath.section == 0) {
+    if (indexPath.section == 0 && !self.isLoginSuccess) {
         CZQLog(@"登录注册");
         CZQRegisterAndLoginViewController *reginAndLoginVC = [[CZQRegisterAndLoginViewController alloc] init];
         //跳转至注册登录界面 modal效果
         [self presentViewController:reginAndLoginVC animated:YES completion:nil];
     }else if (indexPath.section == 1) {
         CZQLog(@"名片扫描");
+    }else if (indexPath.section == 0 && self.isLoginSuccess) {
+        NSLog(@"展示个人信息咯");
     }
 }
 
@@ -245,6 +250,7 @@ static CGFloat margin = 1;
 }
 
 - (void)loginSuccess {
+    self.loginSuccess = YES;
     self.loginAndRegister.text = @"欢迎Kikyo";
     self.headPortraitImageV.image = [UIImage imageNamed:@"logo_login"];
     [self.tableView reloadData];

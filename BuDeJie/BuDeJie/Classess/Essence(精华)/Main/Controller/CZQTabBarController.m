@@ -48,8 +48,8 @@
     [self setUpAlltabBarItemContent];
     //自定义tabBar
     [self setUpTabBar];
-    //默认进入登录界面
-    self.selectedIndex = 2;
+    //默认进入首页，不然有问题
+    self.selectedIndex = 0;
 }
 
 - (void)didReceiveMemoryWarning {
