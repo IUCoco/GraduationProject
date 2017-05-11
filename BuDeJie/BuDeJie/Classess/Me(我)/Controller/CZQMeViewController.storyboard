@@ -71,10 +71,14 @@
                             <outlet property="delegate" destination="wks-V5-QH9" id="bxI-Iv-slL"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="headPortraitImageV" destination="EMC-kt-dg6" id="tNb-1T-OCs"/>
+                        <outlet property="loginAndRegister" destination="4q5-8N-U1S" id="KrH-7e-7p8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXP-Zq-qzc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-716" y="-594"/>
+            <point key="canvasLocation" x="-1287" y="-741"/>
         </scene>
     </scenes>
     <resources>

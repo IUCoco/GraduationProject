@@ -30,6 +30,11 @@ static CGFloat margin = 1;
 //collectionView
 @property(nonatomic, weak)UICollectionView *collectionView;
 
+//第一个Section显示文字
+@property (weak, nonatomic) IBOutlet UILabel *loginAndRegister;
+//用户头像
+@property (weak, nonatomic) IBOutlet UIImageView *headPortraitImageV;
+
 @end
 
 @implementation CZQMeViewController
@@ -71,6 +76,8 @@ static CGFloat margin = 1;
     self.tableView.sectionFooterHeight = 25;
     self.tableView.sectionHeaderHeight = 0;
     self.tableView.contentInset = UIEdgeInsetsMake(- 10, 0, 10, 0);
+    //添加通知
+    [self addObersvers];
 }
 
 #pragma mark - 加载数据
@@ -226,7 +233,27 @@ static CGFloat margin = 1;
     }
 }
 
+#pragma mark - privateMethod
+//注册通知
+- (void)addObersvers {
+    //登录成功
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"LOGIN_SUCCESS" object:nil];
+}
+//移除通知
+- (void)removeObservers {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"LOGINBTN_CLICK" object:nil];
+}
 
+- (void)loginSuccess {
+    self.loginAndRegister.text = @"欢迎Kikyo";
+    self.headPortraitImageV.image = [UIImage imageNamed:@"logo_login"];
+    [self.tableView reloadData];
+}
+
+
+- (void)dealloc {
+    [self removeObservers];
+}
 
 #pragma mark - 设置导航条
 - (void)setUpNavBar{
