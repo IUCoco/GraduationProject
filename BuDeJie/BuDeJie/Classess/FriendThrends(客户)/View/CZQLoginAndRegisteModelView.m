@@ -11,6 +11,7 @@
 @interface CZQLoginAndRegisteModelView ()
 
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+@property (weak, nonatomic) IBOutlet UIButton *registerBtn;
 
 @end
 
@@ -32,18 +33,25 @@
     UIImage *norImage = _loginBtn.currentBackgroundImage;
     norImage = [norImage stretchableImageWithLeftCapWidth:norImage.size.width * 0.5 topCapHeight:norImage.size.height * 0.5];
     [_loginBtn setBackgroundImage:norImage forState:UIControlStateNormal];
+    [_registerBtn setBackgroundImage:norImage forState:UIControlStateNormal];
      //防止图片拉伸 高亮状态下
     UIImage *highImage = [_loginBtn backgroundImageForState:UIControlStateHighlighted];
     highImage = [highImage stretchableImageWithLeftCapWidth:highImage.size.width * 0.5 topCapHeight:highImage.size.height * 0.5];
     [_loginBtn setBackgroundImage:highImage forState:UIControlStateHighlighted];
+    [_registerBtn setBackgroundImage:highImage forState:UIControlStateHighlighted];
+    
+    [_loginBtn addTarget:self action:@selector(loginBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_registerBtn addTarget:self action:@selector(registerBtnClick:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+- (void)loginBtnClick:(UIButton *)loginBtn {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"LOGINBTN_CLICK" object:nil];
 }
-*/
+
+- (void)registerBtnClick:(UIButton *)registerBtn {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"REGISTERBTN_CLICK" object:nil];
+}
+
 
 @end

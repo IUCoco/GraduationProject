@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class CZQLoginTextF;
 
 @interface CZQLoginAndRegisteModelView : UIView
 
@@ -14,4 +15,13 @@
 + (instancetype)loginView;
 //快速创建registerView
 + (instancetype)registerView;
+
+@property (weak, nonatomic) IBOutlet CZQLoginTextF *loginPhoneNum;
+
+@property (weak, nonatomic) IBOutlet CZQLoginTextF *loginPwd;
+
+@property (weak, nonatomic) IBOutlet CZQLoginTextF *registPhoneNum;
+
+@property (weak, nonatomic) IBOutlet CZQLoginTextF *registPwd;
+
 @end

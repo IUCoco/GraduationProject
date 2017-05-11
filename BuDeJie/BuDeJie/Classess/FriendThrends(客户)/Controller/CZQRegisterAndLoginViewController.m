@@ -9,6 +9,8 @@
 #import "CZQRegisterAndLoginViewController.h"
 #import "CZQLoginAndRegisteModelView.h"
 #import "CZQFastLoginView.h"
+#import "CZQLoginTextF.h"
+#import <AVOSCloud.h>
 
 @interface CZQRegisterAndLoginViewController ()
 //中间View
@@ -16,6 +18,10 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leadingCons;
 //底部View
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
+//登录View
+@property (nonatomic, strong) CZQLoginAndRegisteModelView *loginView;
+//注册View
+@property (nonatomic, strong) CZQLoginAndRegisteModelView *registerView;
 
 
 @end
@@ -29,14 +35,18 @@
     // Do any additional setup after loading the view from its nib.
     //登录View
     CZQLoginAndRegisteModelView *loginView = [CZQLoginAndRegisteModelView loginView];
+    self.loginView = loginView;
     [self.middleView addSubview:loginView];
     //注册View
     CZQLoginAndRegisteModelView *registerView = [CZQLoginAndRegisteModelView registerView];
+    self.registerView = registerView;
     [self.middleView addSubview:registerView];
     //快速登录View
     CZQFastLoginView *fastLoginView = [CZQFastLoginView fastLoginView];
     [self.bottomView addSubview:fastLoginView];
     
+    //添加通知
+    [self addObersvers];
     
 }
 /*-------- viewDidLayoutSubviews ---------**/
@@ -53,6 +63,8 @@
     fastLoginView.frame = self.bottomView.bounds;
 }
 
+
+#pragma mark - click
 //退出登录
 - (IBAction)dismissBtnClick:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -65,22 +77,53 @@
     [UIView animateWithDuration:0.5 animations:^{
         [self.view layoutIfNeeded]; 
     }];
+}
+
+//login
+- (void)loginBtnClick {
+    NSLog(@"%@+++++++", self.loginView.loginPhoneNum);
+    NSLog(@"%@+++++++", self.loginView.loginPwd.text);
+    NSString *username = self.loginView.loginPhoneNum.text;
+    NSString *password = self.loginView.loginPwd.text;
+    if (username && password) {
+        // LeanCloud - 登录
+        [AVUser logInWithUsernameInBackground:username password:password block:^(AVUser *user, NSError *error) {
+            if (error) {
+                NSLog(@"登录失败 %@", error);
+            } else {
+                NSLog(@"登录成功");
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"LOGIN_SUCCESS" object:nil];
+            }
+        }];
+    }
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+//register
+- (void)registerBtnClick {
+    NSLog(@"%@+++++++", self.registerView.registPhoneNum);
+    NSLog(@"%@+++++++", self.registerView.registPwd);
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - privateMethod
+//注册通知
+- (void)addObersvers {
+    //登录按钮点击
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginBtnClick) name:@"LOGINBTN_CLICK" object:nil];
+    //注册按钮点击
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registerBtnClick) name:@"REGISTERBTN_CLICK" object:nil];
 }
-*/
+//移除通知
+- (void)removeObservers {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"LOGINBTN_CLICK" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"REGISTERBTN_CLICK" object:nil];
+}
+
+
+
+
+- (void)dealloc {
+    [self removeObservers];
+}
 
 @end

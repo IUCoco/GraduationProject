@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,14 +16,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCL-2P-6Ig" userLabel="TextFBGView">
+                    <rect key="frame" x="54.5" y="20" width="266" height="92"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_rgister_textfield_bg" translatesAutoresizingMaskIntoConstraints="NO" id="0m5-aI-TDQ"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_rgister_textfield_bg" translatesAutoresizingMaskIntoConstraints="NO" id="0m5-aI-TDQ">
+                            <rect key="frame" x="0.0" y="0.0" width="266" height="92"/>
+                        </imageView>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="50p-A3-3D1" userLabel="上Round Style Text Field" customClass="CZQLoginTextF">
+                            <rect key="frame" x="5" y="0.0" width="256" height="46"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CNh-z4-tkU" userLabel="下Round Style Text Field" customClass="CZQLoginTextF">
+                            <rect key="frame" x="5" y="46" width="256" height="46"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -45,6 +53,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtU-Di-u7b">
+                    <rect key="frame" x="54.5" y="142" width="266" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="H2A-bv-rkL"/>
                         <constraint firstAttribute="width" constant="266" id="xKi-L8-Tjf"/>
@@ -54,6 +63,7 @@
                     <state key="highlighted" backgroundImage="loginBtnBgClick"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NMo-4W-8G3">
+                    <rect key="frame" x="266.5" y="192" width="54" height="28"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="忘记密码">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -73,22 +83,32 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="loginBtn" destination="mtU-Di-u7b" id="KMD-fa-hct"/>
+                <outlet property="loginPhoneNum" destination="50p-A3-3D1" id="GuT-UG-xVq"/>
+                <outlet property="loginPwd" destination="CNh-z4-tkU" id="Om5-Be-1Dp"/>
+                <outlet property="registPhoneNum" destination="pTL-mZ-LW1" id="86Z-K0-Xcy"/>
+                <outlet property="registPwd" destination="RuZ-8N-Y4v" id="0CQ-3F-geD"/>
+                <outlet property="registerBtn" destination="GAa-Tm-n6S" id="dsB-BF-mxg"/>
             </connections>
-            <point key="canvasLocation" x="-171" y="-374"/>
+            <point key="canvasLocation" x="-224" y="-468"/>
         </view>
         <view contentMode="scaleToFill" id="2BY-RS-Qc6" customClass="CZQLoginAndRegisteModelView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5f1-vK-ovN" userLabel="TextFBGView">
+                    <rect key="frame" x="54.5" y="20" width="266" height="92"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_rgister_textfield_bg" translatesAutoresizingMaskIntoConstraints="NO" id="4T3-gb-dsV"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_rgister_textfield_bg" translatesAutoresizingMaskIntoConstraints="NO" id="4T3-gb-dsV">
+                            <rect key="frame" x="0.0" y="0.0" width="266" height="92"/>
+                        </imageView>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pTL-mZ-LW1" userLabel="上Round Style Text Field" customClass="CZQLoginTextF">
+                            <rect key="frame" x="5" y="0.0" width="256" height="46"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RuZ-8N-Y4v" userLabel="下Round Style Text Field" customClass="CZQLoginTextF">
+                            <rect key="frame" x="5" y="46" width="256" height="46"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -112,7 +132,8 @@
                         <constraint firstItem="pTL-mZ-LW1" firstAttribute="top" secondItem="5f1-vK-ovN" secondAttribute="top" id="vig-sw-Man"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAa-Tm-n6S">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAa-Tm-n6S" userLabel="regis Btn">
+                    <rect key="frame" x="54.5" y="142" width="266" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="266" id="aSz-Ef-aqh"/>
                         <constraint firstAttribute="height" constant="30" id="wyC-wf-VLI"/>
@@ -131,10 +152,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <connections>
-                <outlet property="loginBtn" destination="GAa-Tm-n6S" id="KJY-Sa-400"/>
-            </connections>
-            <point key="canvasLocation" x="-179" y="-20"/>
+            <point key="canvasLocation" x="-225" y="-97"/>
         </view>
     </objects>
     <resources>
