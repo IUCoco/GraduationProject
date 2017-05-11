@@ -12,6 +12,11 @@
 
 @interface CZQFriendThrendsViewController ()
 
+//记录登录成功与否状态
+@property (nonatomic, assign, getter=isLoginSuccess) BOOL loginSuccess;
+//记录登录成功后是否首次移除登录提示界面
+@property (nonatomic, assign, getter=isFirstRemoveSubViews) BOOL firstRemoveSubViews;
+
 @end
 
 @implementation CZQFriendThrendsViewController
@@ -22,11 +27,35 @@
     self.view.backgroundColor = [UIColor grayColor];
     //设置导航条
     [self setUpNavBar];
+    //添加通知
+    [self addObersvers];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    if (self.isFirstRemoveSubViews) return;
+    if (self.isLoginSuccess) {
+        [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        self.firstRemoveSubViews = YES;
+    }
+}
+
+#pragma mark - privateMethod
+//注册通知
+- (void)addObersvers {
+    //登录成功
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"LOGIN_SUCCESS" object:nil];
+}
+//移除通知
+- (void)removeObservers {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"LOGINBTN_CLICK" object:nil];
+}
+
+- (void)loginSuccess {
+    self.loginSuccess = YES;
+}
+
+- (void)dealloc {
+    [self removeObservers];
 }
 
 //监听登录按钮点击 modal效果
@@ -59,14 +88,5 @@
     [self.navigationController pushViewController:followVC animated:YES];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

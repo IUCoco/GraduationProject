@@ -93,6 +93,7 @@
             } else {
                 NSLog(@"登录成功");
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"LOGIN_SUCCESS" object:nil];
+                [self dismissViewControllerAnimated:YES completion:nil];
             }
         }];
     }

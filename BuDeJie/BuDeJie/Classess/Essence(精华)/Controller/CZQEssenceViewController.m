@@ -46,7 +46,7 @@
     // Do any additional setup after loading the view.
     //添加通知
     [self addObersvers];
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor whiteColor];
 //    [self setSubViews];
 //    //初始化子控制器
 //    [self setUpChildViewContrS];
