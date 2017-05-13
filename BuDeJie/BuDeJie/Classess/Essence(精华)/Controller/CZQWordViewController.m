@@ -72,6 +72,7 @@
     self.tableView.tableHeaderView = bgView;
     
     UILabel *companyNameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    companyNameLabel.textColor = [UIColor colorWithRed:139 / 255.0 green:139 / 255.0 blue:139 / 255.0 alpha:1.0];
     companyNameLabel.numberOfLines = 0;
     companyNameLabel.textAlignment = NSTextAlignmentCenter;
     companyNameLabel.font = [UIFont boldSystemFontOfSize:20];
@@ -85,8 +86,9 @@
     }];
     
     UILabel *companyInfoLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    companyInfoLabel.font = [UIFont systemFontOfSize:12];
     companyInfoLabel.numberOfLines = 0;
-    companyInfoLabel.text = @"        杭州电子科技大学（Hangzhou Dianzi University），简称杭电，是浙江省人民政府与国防科技工业局共建的教学研究型大学，是浙江省首批重点建设的5所高校之一。\n        学校前身为创建于1956年的杭州航空工业财经学校，是中国较早成立的一所以信息科技（IT）学科为主导的高等院校，先后隶属于机械工业部、电子工业部和信息产业部等中央部委，1980年经国务院批准设立杭州电子工业学院，2004年更名为杭州电子科技大学";
+    companyInfoLabel.text = @"        杭州电子科技大学（Hangzhou Dianzi University），简称杭电，是浙江省人民政府与国防科技工业局共建的教学研究型大学，是浙江省首批重点建设的5所高校之一。\n        学校前身为创建于1956年的杭州航空工业财经学校，是中国较早成立的一所以信息科技（IT）学科为主导的高等院校，先后隶属于机械工业部、电子工业部和信息产业部等中央部委，1980年经国务院批准设立杭州电子工业学院，2004年更名为杭州电子科技大学\n        截止2017年5月，学校建有下沙、文一、东岳、下沙东及信息工程学院临安新校区共五个校区，占地面积2500余亩。学校拥有本科教育、研究生教育、继续教育、留学生教育等完整的人才培养体系，设有20个学院及教学单位，有本科专业58个，普通全日制在校生28000余人，教职员工2300余人。并举办一所独立学院——杭州电子科技大学信息工程学院";
     [bgView addSubview:companyInfoLabel];
     [companyInfoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(companyNameLabel.mas_bottom).offset(30);

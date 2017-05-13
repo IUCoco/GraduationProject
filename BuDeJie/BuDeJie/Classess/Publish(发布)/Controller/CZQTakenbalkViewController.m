@@ -53,6 +53,7 @@
     
     //时间label
     UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    timeLabel.textColor = [UIColor colorWithRed:139 / 255.0 green:139 / 255.0 blue:139 / 255.0 alpha:1.0];
     [self makRadius:timeLabel];
     timeLabel.numberOfLines = 0;
     timeLabel.text = @"    本地时间:\n    2017-05-12 18:30";
@@ -66,6 +67,7 @@
     
     //地点
     UILabel *locationLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    locationLabel.textColor = [UIColor colorWithRed:139 / 255.0 green:139 / 255.0 blue:139 / 255.0 alpha:1.0];
     locationLabel.font = [UIFont systemFontOfSize:12];
     [self makRadius:locationLabel];
     locationLabel.numberOfLines = 0;
@@ -80,6 +82,7 @@
     
     //发报人信息
     UILabel *personalDetailsLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    personalDetailsLabel.textColor = [UIColor colorWithRed:139 / 255.0 green:139 / 255.0 blue:139 / 255.0 alpha:1.0];
     personalDetailsLabel.font = [UIFont systemFontOfSize:12];
     [self makRadius:personalDetailsLabel];
     personalDetailsLabel.numberOfLines = 0;

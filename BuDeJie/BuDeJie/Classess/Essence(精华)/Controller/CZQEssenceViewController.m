@@ -98,9 +98,10 @@
     }];
     
     UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    descriptionLabel.textColor = [UIColor colorWithRed:139 / 255.0 green:139 / 255.0 blue:139 / 255.0 alpha:1.0];
     descriptionLabel.numberOfLines = 0;
     descriptionLabel.textAlignment = NSTextAlignmentCenter;
-    descriptionLabel.font = [UIFont systemFontOfSize:15];
+    descriptionLabel.font = [UIFont systemFontOfSize:18];
     descriptionLabel.text = @"登陆后即可查看更多消息~~~\n快快登录吧！";
     [hintLoginView addSubview:descriptionLabel];
     [descriptionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
