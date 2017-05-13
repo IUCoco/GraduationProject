@@ -7,7 +7,11 @@
 //
 
 #import "CZQTopicCell.h"
+@class CZQPictureItem;
 
 @interface CZQPictureCell : CZQTopicCell
+
+/** 模型 */
+@property (nonatomic, strong) CZQPictureItem *item;
 
 @end

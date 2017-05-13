@@ -7,12 +7,26 @@
 //
 
 #import "CZQPictureViewController.h"
+#import "CZQPictureItem.h"
+#import <MJExtension.h>
+#import "CZQPictureCell.h"
 
 @interface CZQPictureViewController ()
+
+@property (nonatomic, strong) NSMutableArray *pictureArrM;
 
 @end
 
 @implementation CZQPictureViewController
+
+static NSString *ID = @"PictureCell";
+
+- (NSMutableArray *)pictureArrM {
+    if (!_pictureArrM) {
+        _pictureArrM = [CZQPictureItem mj_objectArrayWithFilename:@"Picture.plist"];
+    }
+    return _pictureArrM;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,11 +35,13 @@
     self.tableView.contentInset = UIEdgeInsetsMake(CZQTitleViewH, 0, CZQTabBarH + CZQContentInsetH, 0);
     //*********设置滚动条的内边距
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //********添加监听CZQTabBarButtonDidRepeatClickNotification
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDidRepeatClick) name:CZQTabBarButtonDidRepeatClickNotification object:nil];
     //**********添加监听CZQTitleButtonDidRepeatClickNotification
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonDidRepeatClick) name:CZQTitleButtonDidRepeatClickNotification object:nil];
+    [self.tableView registerClass:[CZQPictureCell class] forCellReuseIdentifier:ID];
 }
 
 //**********监听事件CZQTabBarButtonDidRepeatClickNotification
@@ -61,21 +77,22 @@
 }
 
 #pragma mark - 数据源
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 110;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 30;
+    return self.pictureArrM.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-        cell.backgroundColor = [UIColor clearColor];
-    }
-    cell.textLabel.text = [NSString stringWithFormat:@"%@-%zd", self.class, indexPath.row];
+    CZQPictureCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    cell.item = self.pictureArrM[indexPath.row];
     return cell;
+    
 }
 
 

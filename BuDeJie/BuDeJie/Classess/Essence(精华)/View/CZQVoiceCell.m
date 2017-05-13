@@ -13,8 +13,8 @@
 @interface CZQVoiceCell ()
 
 @property (nonatomic, weak) UIImageView *myImgView;//左侧头像
-@property (nonatomic, weak) UILabel *timeLab;//客户姓名label
-@property (nonatomic, weak) UILabel *locationLab;//客户住址label
+@property (nonatomic, weak) UILabel *timeLab;//时间label
+@property (nonatomic, weak) UILabel *locationLab;//打卡地址label
 @property (nonatomic, weak) UIView *stripView;//灰色分隔条
 
 @end
