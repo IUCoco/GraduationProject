@@ -15,13 +15,13 @@ static NSString *ID = @"backlogCell";
 
 @interface CZQBacklogViewController ()
 
-@property (nonatomic, strong) NSArray *backlogArr;
+@property (nonatomic, strong) NSMutableArray *backlogArr;
 
 @end
 
 @implementation CZQBacklogViewController
 
-- (NSArray *)backlogArr {
+- (NSMutableArray *)backlogArr {
     if (!_backlogArr) {
         _backlogArr = [CZQBacklogItem mj_objectArrayWithFilename:@"Backlog.plist"];
     }

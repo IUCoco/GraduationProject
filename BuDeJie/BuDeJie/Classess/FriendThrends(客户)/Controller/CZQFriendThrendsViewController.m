@@ -23,7 +23,7 @@
 //tabView
 @property (nonatomic, weak) UITableView *myTab;
 
-@property (nonatomic, strong) NSArray *friendThrendsArr;
+@property (nonatomic, strong) NSMutableArray *friendThrendsArr;
 
 @end
 
@@ -31,7 +31,7 @@
 
 static NSString * const FriendThrendsCellID = @"FriendThrendsCellID";
 
-- (NSArray *)friendThrendsArr {
+- (NSMutableArray *)friendThrendsArr {
     if (!_friendThrendsArr) {
         _friendThrendsArr = [CZQFriendThrendsItem mj_objectArrayWithFilename:@"FriendThrends.plist"];
     }

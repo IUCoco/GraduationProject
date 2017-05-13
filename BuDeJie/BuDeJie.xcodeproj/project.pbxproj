@@ -73,6 +73,8 @@
 		CF62D6EF1EC6F571007D2330 /* CZQFriendThrendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF62D6EE1EC6F571007D2330 /* CZQFriendThrendsCell.m */; };
 		CF62D6F21EC6F5A5007D2330 /* CZQFriendThrendsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CF62D6F11EC6F5A5007D2330 /* CZQFriendThrendsItem.m */; };
 		CF62D6F41EC70CCF007D2330 /* FriendThrends.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF62D6F31EC70CCF007D2330 /* FriendThrends.plist */; };
+		CF62D6F71EC7252E007D2330 /* CZQVideoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CF62D6F61EC7252E007D2330 /* CZQVideoItem.m */; };
+		CF62D6F91EC72CF9007D2330 /* Video.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF62D6F81EC72CF9007D2330 /* Video.plist */; };
 		CF6AB6921EBAB8DD00860979 /* CZQBdiduMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = CF6AB6911EBAB8DD00860979 /* CZQBdiduMap.mm */; };
 		CF8223DC1EB9C89C00DCCF91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8223DB1EB9C89C00DCCF91 /* AppDelegate.m */; };
 		CFAAF0621E3E0E7500ED63A7 /* CZQTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAAF0611E3E0E7500ED63A7 /* CZQTopic.m */; };
@@ -232,6 +234,9 @@
 		CF62D6F01EC6F5A5007D2330 /* CZQFriendThrendsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQFriendThrendsItem.h; sourceTree = "<group>"; };
 		CF62D6F11EC6F5A5007D2330 /* CZQFriendThrendsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQFriendThrendsItem.m; sourceTree = "<group>"; };
 		CF62D6F31EC70CCF007D2330 /* FriendThrends.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FriendThrends.plist; sourceTree = "<group>"; };
+		CF62D6F51EC7252E007D2330 /* CZQVideoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQVideoItem.h; sourceTree = "<group>"; };
+		CF62D6F61EC7252E007D2330 /* CZQVideoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQVideoItem.m; sourceTree = "<group>"; };
+		CF62D6F81EC72CF9007D2330 /* Video.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Video.plist; sourceTree = "<group>"; };
 		CF6AB6901EBAB8DD00860979 /* CZQBdiduMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQBdiduMap.h; sourceTree = "<group>"; };
 		CF6AB6911EBAB8DD00860979 /* CZQBdiduMap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CZQBdiduMap.mm; sourceTree = "<group>"; };
 		CF8223DB1EB9C89C00DCCF91 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = BuDeJie/Classess/Other/AppDelegate.m; sourceTree = SOURCE_ROOT; };
@@ -423,6 +428,9 @@
 			children = (
 				CFAAF0601E3E0E7500ED63A7 /* CZQTopic.h */,
 				CFAAF0611E3E0E7500ED63A7 /* CZQTopic.m */,
+				CF62D6F51EC7252E007D2330 /* CZQVideoItem.h */,
+				CF62D6F61EC7252E007D2330 /* CZQVideoItem.m */,
+				CF62D6F81EC72CF9007D2330 /* Video.plist */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -934,6 +942,7 @@
 				5637BE571DE5C3EA00FDE1F2 /* CZQADViewController.xib in Resources */,
 				562619C31DEC15F90081F74B /* CZQMeViewController.storyboard in Resources */,
 				CFB7EFAD1EA2FD9300D7A097 /* CZQRegisterAndLoginViewController.xib in Resources */,
+				CF62D6F91EC72CF9007D2330 /* Video.plist in Resources */,
 				5637BE621DE5CD8300FDE1F2 /* LaunchImage-700@2x.png in Resources */,
 				5637BDD81DE3075E00FDE1F2 /* Main.storyboard in Resources */,
 				CFB7EFB01EA2FD9300D7A097 /* CZQFastLoginView.xib in Resources */,
@@ -1021,6 +1030,7 @@
 				CF2A15911EBEC66800538FE3 /* XMGTagTextField.m in Sources */,
 				CF2A159A1EBEC84200538FE3 /* UIView+XMGExtension.m in Sources */,
 				CF2A158C1EBEC66800538FE3 /* XMGPlaceholderTextView.m in Sources */,
+				CF62D6F71EC7252E007D2330 /* CZQVideoItem.m in Sources */,
 				CF2FA4271E41B90000630556 /* CZQVoiceCell.m in Sources */,
 				565ECA731DF1A2410022EB9D /* CZQVoiceViewController.m in Sources */,
 				CFB7EFD91EA3085000D7A097 /* CZQFollowCell.m in Sources */,

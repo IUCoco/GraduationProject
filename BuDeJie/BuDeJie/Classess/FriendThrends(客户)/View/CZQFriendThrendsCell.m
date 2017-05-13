@@ -26,6 +26,9 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
+        self.contentView.backgroundColor = [UIColor whiteColor];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         UIImageView *myImgView = [[UIImageView alloc] initWithFrame:CGRectZero];
         myImgView.image = [UIImage imageNamed:@"customer"];
         myImgView.layer.masksToBounds = YES;

@@ -7,7 +7,11 @@
 //
 
 #import "CZQTopicCell.h"
+@class CZQVideoItem;
 
 @interface CZQVideoCell : CZQTopicCell
+
+/** 模型 */
+@property (nonatomic, strong) CZQVideoItem *item;
 
 @end
