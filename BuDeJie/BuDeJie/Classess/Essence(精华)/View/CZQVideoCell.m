@@ -93,6 +93,7 @@
 }
 
 - (void)setItem:(CZQVideoItem *)item {
+    _item = item;
     self.myImgView.image = [UIImage imageNamed:item.imageStr];//左侧头像
     self.timeLab.text = item.timeStr;//客户姓名label
     self.detailLab.text = item.detailStr;//客户住址label

@@ -121,6 +121,7 @@
 }
 
 - (void)setItem:(CZQFriendThrendsItem *)item {
+    _item = item;
     self.myImgView.image = [UIImage imageNamed:item.imageStr];//左侧头像
     self.nameLab.text = item.nameStr;//客户姓名label
     self.locationLab.text = item.locationStr;//客户住址label

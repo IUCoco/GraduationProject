@@ -75,6 +75,8 @@
 		CF62D6F41EC70CCF007D2330 /* FriendThrends.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF62D6F31EC70CCF007D2330 /* FriendThrends.plist */; };
 		CF62D6F71EC7252E007D2330 /* CZQVideoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CF62D6F61EC7252E007D2330 /* CZQVideoItem.m */; };
 		CF62D6F91EC72CF9007D2330 /* Video.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF62D6F81EC72CF9007D2330 /* Video.plist */; };
+		CF62D6FC1EC73DA1007D2330 /* CZQVoiceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CF62D6FB1EC73DA1007D2330 /* CZQVoiceItem.m */; };
+		CF62D6FE1EC73DB9007D2330 /* Voice.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF62D6FD1EC73DB9007D2330 /* Voice.plist */; };
 		CF6AB6921EBAB8DD00860979 /* CZQBdiduMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = CF6AB6911EBAB8DD00860979 /* CZQBdiduMap.mm */; };
 		CF8223DC1EB9C89C00DCCF91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8223DB1EB9C89C00DCCF91 /* AppDelegate.m */; };
 		CFAAF0621E3E0E7500ED63A7 /* CZQTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAAF0611E3E0E7500ED63A7 /* CZQTopic.m */; };
@@ -237,6 +239,9 @@
 		CF62D6F51EC7252E007D2330 /* CZQVideoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQVideoItem.h; sourceTree = "<group>"; };
 		CF62D6F61EC7252E007D2330 /* CZQVideoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQVideoItem.m; sourceTree = "<group>"; };
 		CF62D6F81EC72CF9007D2330 /* Video.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Video.plist; sourceTree = "<group>"; };
+		CF62D6FA1EC73DA1007D2330 /* CZQVoiceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQVoiceItem.h; sourceTree = "<group>"; };
+		CF62D6FB1EC73DA1007D2330 /* CZQVoiceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQVoiceItem.m; sourceTree = "<group>"; };
+		CF62D6FD1EC73DB9007D2330 /* Voice.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Voice.plist; sourceTree = "<group>"; };
 		CF6AB6901EBAB8DD00860979 /* CZQBdiduMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQBdiduMap.h; sourceTree = "<group>"; };
 		CF6AB6911EBAB8DD00860979 /* CZQBdiduMap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CZQBdiduMap.mm; sourceTree = "<group>"; };
 		CF8223DB1EB9C89C00DCCF91 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = BuDeJie/Classess/Other/AppDelegate.m; sourceTree = SOURCE_ROOT; };
@@ -431,6 +436,9 @@
 				CF62D6F51EC7252E007D2330 /* CZQVideoItem.h */,
 				CF62D6F61EC7252E007D2330 /* CZQVideoItem.m */,
 				CF62D6F81EC72CF9007D2330 /* Video.plist */,
+				CF62D6FA1EC73DA1007D2330 /* CZQVoiceItem.h */,
+				CF62D6FB1EC73DA1007D2330 /* CZQVoiceItem.m */,
+				CF62D6FD1EC73DB9007D2330 /* Voice.plist */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -930,6 +938,7 @@
 				CF62D6EC1EC6B59D007D2330 /* Backlog.plist in Resources */,
 				CFB7EFAB1EA2FD9300D7A097 /* CZQFriendThrendsViewController.xib in Resources */,
 				5637BE631DE5CD8300FDE1F2 /* LaunchImage-800-667h@2x.png in Resources */,
+				CF62D6FE1EC73DB9007D2330 /* Voice.plist in Resources */,
 				CF62D6F41EC70CCF007D2330 /* FriendThrends.plist in Resources */,
 				5637BE601DE5CD8300FDE1F2 /* LaunchImage-568h@2x.png in Resources */,
 				CFBB1D151E4424A900DB98FD /* CZQTopicVoiceView.xib in Resources */,
@@ -1037,6 +1046,7 @@
 				5637BE561DE5C3EA00FDE1F2 /* CZQADViewController.m in Sources */,
 				CF2A15901EBEC66800538FE3 /* XMGTagButton.m in Sources */,
 				CF62D6EF1EC6F571007D2330 /* CZQFriendThrendsCell.m in Sources */,
+				CF62D6FC1EC73DA1007D2330 /* CZQVoiceItem.m in Sources */,
 				5637BE1D1DE3194300FDE1F2 /* main.m in Sources */,
 				5637BE4E1DE5876800FDE1F2 /* CZQSettingViewController.m in Sources */,
 				5637BE371DE3318E00FDE1F2 /* UIImage+CZQImage.m in Sources */,

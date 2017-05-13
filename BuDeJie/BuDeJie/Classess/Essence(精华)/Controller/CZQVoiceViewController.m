@@ -7,12 +7,26 @@
 //
 
 #import "CZQVoiceViewController.h"
+#import "CZQVoiceItem.h"
+#import <MJExtension.h>
+#import "CZQVoiceCell.h"
 
 @interface CZQVoiceViewController ()
+
+@property (nonatomic, strong) NSMutableArray *voiceArrM;
 
 @end
 
 @implementation CZQVoiceViewController
+
+static NSString *ID = @"VoiceCell";
+
+- (NSMutableArray *)voiceArrM {
+    if (!_voiceArrM) {
+        _voiceArrM = [CZQVoiceItem mj_objectArrayWithFilename:@"Voice.plist"];
+    }
+    return _voiceArrM;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,11 +35,13 @@
     self.tableView.contentInset = UIEdgeInsetsMake(CZQTitleViewH, 0, CZQTabBarH + CZQContentInsetH, 0);
     //*********设置滚动条的内边距
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //********添加监听CZQTabBarButtonDidRepeatClickNotification
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarButtonDidRepeatClick) name:CZQTabBarButtonDidRepeatClickNotification object:nil];
     //**********添加监听CZQTitleButtonDidRepeatClickNotification
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonDidRepeatClick) name:CZQTitleButtonDidRepeatClickNotification object:nil];
+    [self.tableView registerClass:[CZQVoiceCell class] forCellReuseIdentifier:ID];
 }
 
 //**********监听事件CZQTabBarButtonDidRepeatClickNotification
@@ -61,22 +77,22 @@
 }
 
 #pragma mark - 数据源
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 30;
+    return self.voiceArrM.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-        cell.backgroundColor = [UIColor clearColor];
-    }
-    cell.textLabel.text = [NSString stringWithFormat:@"%@-%zd", self.class, indexPath.row];
+    CZQVoiceCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    cell.item = self.voiceArrM[indexPath.row];
     return cell;
+    
 }
-
 
 @end

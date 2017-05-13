@@ -7,7 +7,11 @@
 //
 
 #import "CZQTopicCell.h"
+@class CZQVoiceItem;
 
 @interface CZQVoiceCell : CZQTopicCell
+
+/** 模型 */
+@property (nonatomic, strong) CZQVoiceItem *item;
 
 @end
