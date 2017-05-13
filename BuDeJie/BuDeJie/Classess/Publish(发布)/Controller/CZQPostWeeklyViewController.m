@@ -9,7 +9,9 @@
 #import "CZQPostWeeklyViewController.h"
 #import <Masonry.h>
 
-@interface CZQPostWeeklyViewController ()
+@interface CZQPostWeeklyViewController ()<UITextViewDelegate>
+
+@property (nonatomic, strong) UITextView *contentTextV;
 
 @end
 
@@ -22,6 +24,7 @@
     [self setupNav];
     //初始化界面
     [self setupSubViews];
+    [self.contentTextV becomeFirstResponder];
 }
 
 #pragma mark - 设置界面
@@ -36,8 +39,11 @@
     
     //周报详情
     UITextView *contentTextV = [[UITextView alloc] initWithFrame:CGRectZero];
+    contentTextV.delegate = self;
+    contentTextV.returnKeyType = UIReturnKeyDone;
     [self makRadius:contentTextV];
     [self.view addSubview:contentTextV];
+    self.contentTextV = contentTextV;
     [contentTextV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.mas_top).offset(CZQTabBarH + CZQStatusBarH);
         make.left.equalTo(self.view.mas_left).offset(15);
@@ -119,6 +125,19 @@
     view.layer.cornerRadius = 5.0;
     view.layer.masksToBounds  =YES;
 }
+
+#pragma mark - UITextViewDelegate
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if ([text isEqualToString:@"\n"]){ //判断输入的字是否是回车，即按下return
+        //在这里做你响应return键的代码
+        [textView resignFirstResponder];
+        return NO; //这里返回NO，就代表return键值失效，即页面上按下return，不会出现换行，如果为yes，则输入页面会换行
+    }
+    
+    return YES;
+}
+
 
 
 @end
