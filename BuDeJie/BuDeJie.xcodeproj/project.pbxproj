@@ -63,6 +63,13 @@
 		CF2FA42A1E41B91B00630556 /* CZQPictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2FA4291E41B91B00630556 /* CZQPictureCell.m */; };
 		CF2FA42D1E41B94600630556 /* CZQWoldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2FA42C1E41B94600630556 /* CZQWoldCell.m */; };
 		CF2FA4331E41F99D00630556 /* CZQTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF2FA4321E41F99D00630556 /* CZQTopicCell.xib */; };
+		CF62D6DB1EC4A4D9007D2330 /* CZQPostWeeklyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF62D6DA1EC4A4D9007D2330 /* CZQPostWeeklyViewController.m */; };
+		CF62D6DE1EC4AA4D007D2330 /* CZQPunchCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF62D6DD1EC4AA4D007D2330 /* CZQPunchCardViewController.m */; };
+		CF62D6E11EC6860E007D2330 /* CZQTakenbalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF62D6E01EC6860E007D2330 /* CZQTakenbalkViewController.m */; };
+		CF62D6E41EC6A391007D2330 /* CZQBacklogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF62D6E31EC6A391007D2330 /* CZQBacklogViewController.m */; };
+		CF62D6E71EC6A998007D2330 /* CZQBacklogItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CF62D6E61EC6A998007D2330 /* CZQBacklogItem.m */; };
+		CF62D6EA1EC6A9E7007D2330 /* CZQBacklogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF62D6E91EC6A9E7007D2330 /* CZQBacklogCell.m */; };
+		CF62D6EC1EC6B59D007D2330 /* Backlog.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF62D6EB1EC6B59D007D2330 /* Backlog.plist */; };
 		CF6AB6921EBAB8DD00860979 /* CZQBdiduMap.mm in Sources */ = {isa = PBXBuildFile; fileRef = CF6AB6911EBAB8DD00860979 /* CZQBdiduMap.mm */; };
 		CF8223DC1EB9C89C00DCCF91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8223DB1EB9C89C00DCCF91 /* AppDelegate.m */; };
 		CFAAF0621E3E0E7500ED63A7 /* CZQTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAAF0611E3E0E7500ED63A7 /* CZQTopic.m */; };
@@ -204,6 +211,19 @@
 		CF2FA42B1E41B94600630556 /* CZQWoldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQWoldCell.h; sourceTree = "<group>"; };
 		CF2FA42C1E41B94600630556 /* CZQWoldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQWoldCell.m; sourceTree = "<group>"; };
 		CF2FA4321E41F99D00630556 /* CZQTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CZQTopicCell.xib; sourceTree = "<group>"; };
+		CF62D6D91EC4A4D9007D2330 /* CZQPostWeeklyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQPostWeeklyViewController.h; sourceTree = "<group>"; };
+		CF62D6DA1EC4A4D9007D2330 /* CZQPostWeeklyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQPostWeeklyViewController.m; sourceTree = "<group>"; };
+		CF62D6DC1EC4AA4D007D2330 /* CZQPunchCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQPunchCardViewController.h; sourceTree = "<group>"; };
+		CF62D6DD1EC4AA4D007D2330 /* CZQPunchCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQPunchCardViewController.m; sourceTree = "<group>"; };
+		CF62D6DF1EC6860E007D2330 /* CZQTakenbalkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQTakenbalkViewController.h; sourceTree = "<group>"; };
+		CF62D6E01EC6860E007D2330 /* CZQTakenbalkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQTakenbalkViewController.m; sourceTree = "<group>"; };
+		CF62D6E21EC6A391007D2330 /* CZQBacklogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQBacklogViewController.h; sourceTree = "<group>"; };
+		CF62D6E31EC6A391007D2330 /* CZQBacklogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQBacklogViewController.m; sourceTree = "<group>"; };
+		CF62D6E51EC6A998007D2330 /* CZQBacklogItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQBacklogItem.h; sourceTree = "<group>"; };
+		CF62D6E61EC6A998007D2330 /* CZQBacklogItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQBacklogItem.m; sourceTree = "<group>"; };
+		CF62D6E81EC6A9E7007D2330 /* CZQBacklogCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQBacklogCell.h; sourceTree = "<group>"; };
+		CF62D6E91EC6A9E7007D2330 /* CZQBacklogCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQBacklogCell.m; sourceTree = "<group>"; };
+		CF62D6EB1EC6B59D007D2330 /* Backlog.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Backlog.plist; sourceTree = "<group>"; };
 		CF6AB6901EBAB8DD00860979 /* CZQBdiduMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQBdiduMap.h; sourceTree = "<group>"; };
 		CF6AB6911EBAB8DD00860979 /* CZQBdiduMap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CZQBdiduMap.mm; sourceTree = "<group>"; };
 		CF8223DB1EB9C89C00DCCF91 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = BuDeJie/Classess/Other/AppDelegate.m; sourceTree = SOURCE_ROOT; };
@@ -447,6 +467,8 @@
 				CFBDD7971EC40ED200B8997A /* CZQPersonalDetailsViewController.h */,
 				CFBDD7981EC40ED200B8997A /* CZQPersonalDetailsViewController.m */,
 				CFBDD79C1EC4100200B8997A /* CZQPersonalDetailsViewController.storyboard */,
+				CF62D6E21EC6A391007D2330 /* CZQBacklogViewController.h */,
+				CF62D6E31EC6A391007D2330 /* CZQBacklogViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -457,6 +479,9 @@
 				562619C91DEC2FF50081F74B /* CZQCollectionItem.h */,
 				562619CA1DEC2FF50081F74B /* CZQCollectionItem.m */,
 				CFF5D38A1EC3055000CA1BAB /* collection.plist */,
+				CF62D6E51EC6A998007D2330 /* CZQBacklogItem.h */,
+				CF62D6E61EC6A998007D2330 /* CZQBacklogItem.m */,
+				CF62D6EB1EC6B59D007D2330 /* Backlog.plist */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -467,6 +492,8 @@
 				562619C41DEC26E70081F74B /* CZQCollectionViewCell.h */,
 				562619C51DEC26E70081F74B /* CZQCollectionViewCell.m */,
 				562619C61DEC26E70081F74B /* CZQCollectionViewCell.xib */,
+				CF62D6E81EC6A9E7007D2330 /* CZQBacklogCell.h */,
+				CF62D6E91EC6A9E7007D2330 /* CZQBacklogCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -505,6 +532,12 @@
 				5637BE2A1DE31B6300FDE1F2 /* CZQPublishViewController.h */,
 				5637BE2B1DE31B6300FDE1F2 /* CZQPublishViewController.m */,
 				CF2A15681EBEC07700538FE3 /* CZQPublishViewController.xib */,
+				CF62D6D91EC4A4D9007D2330 /* CZQPostWeeklyViewController.h */,
+				CF62D6DA1EC4A4D9007D2330 /* CZQPostWeeklyViewController.m */,
+				CF62D6DC1EC4AA4D007D2330 /* CZQPunchCardViewController.h */,
+				CF62D6DD1EC4AA4D007D2330 /* CZQPunchCardViewController.m */,
+				CF62D6DF1EC6860E007D2330 /* CZQTakenbalkViewController.h */,
+				CF62D6E01EC6860E007D2330 /* CZQTakenbalkViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -873,6 +906,7 @@
 				5637BE661DE5CD8300FDE1F2 /* LaunchImage@2x.png in Resources */,
 				CFB7EFC81EA2FE2A00D7A097 /* CZQLoginAndRegisteModelView.xib in Resources */,
 				5637BE611DE5CD8300FDE1F2 /* LaunchImage-700-568h@2x.png in Resources */,
+				CF62D6EC1EC6B59D007D2330 /* Backlog.plist in Resources */,
 				CFB7EFAB1EA2FD9300D7A097 /* CZQFriendThrendsViewController.xib in Resources */,
 				5637BE631DE5CD8300FDE1F2 /* LaunchImage-800-667h@2x.png in Resources */,
 				5637BE601DE5CD8300FDE1F2 /* LaunchImage-568h@2x.png in Resources */,
@@ -959,6 +993,7 @@
 				CFB7EFD81EA3085000D7A097 /* CZQFollowItem.m in Sources */,
 				5637BE2C1DE31B6300FDE1F2 /* CZQPublishViewController.m in Sources */,
 				562619C71DEC26E70081F74B /* CZQCollectionViewCell.m in Sources */,
+				CF62D6E41EC6A391007D2330 /* CZQBacklogViewController.m in Sources */,
 				5637BE401DE3FB8700FDE1F2 /* UIView+CZQFrame.m in Sources */,
 				CFB7EFAA1EA2FD9300D7A097 /* CZQFriendThrendsViewController.m in Sources */,
 				CFBB1D071E435E6100DB98FD /* CZQTopicVideoView.m in Sources */,
@@ -993,8 +1028,13 @@
 				5637BE201DE31A7F00FDE1F2 /* CZQEssenceViewController.m in Sources */,
 				CF2A15A31EBECA3F00538FE3 /* UITextField+XMGExtension.m in Sources */,
 				CF2A154B1EBDFF3800538FE3 /* RouteAnnotation.mm in Sources */,
+				CF62D6E71EC6A998007D2330 /* CZQBacklogItem.m in Sources */,
+				CF62D6DB1EC4A4D9007D2330 /* CZQPostWeeklyViewController.m in Sources */,
+				CF62D6DE1EC4AA4D007D2330 /* CZQPunchCardViewController.m in Sources */,
 				5637BE261DE31B0500FDE1F2 /* CZQMeViewController.m in Sources */,
+				CF62D6EA1EC6A9E7007D2330 /* CZQBacklogCell.m in Sources */,
 				CFB7EFD61EA3085000D7A097 /* CZQFllowViewController.m in Sources */,
+				CF62D6E11EC6860E007D2330 /* CZQTakenbalkViewController.m in Sources */,
 				CFF5D3871EC2F7F900CA1BAB /* CZQAllViewController.m in Sources */,
 				CF2FA4211E41B8B400630556 /* CZQTopicCell.m in Sources */,
 				CF2A15971EBEC67800538FE3 /* XMGPostWordViewController.m in Sources */,

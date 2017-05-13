@@ -83,6 +83,10 @@
     [self.view addSubview:hintLoginView];
     self.hintLoginView = hintLoginView;
     
+    UIImageView *bgImageV = [[UIImageView alloc] initWithFrame:self.view.frame];
+    bgImageV.image = [UIImage imageNamed:@"shareBottomBackground"];
+    [hintLoginView addSubview:bgImageV];
+    
     UIImageView *smallImageV = [[UIImageView alloc] initWithFrame:CGRectZero];
     smallImageV.image = [UIImage imageNamed:@"defineEmotionGroup"];
     [hintLoginView addSubview:smallImageV];

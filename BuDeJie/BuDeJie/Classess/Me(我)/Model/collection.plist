@@ -22,24 +22,6 @@
 	</dict>
 	<dict>
 		<key>android</key>
-		<string>3.8.0|</string>
-		<key>icon</key>
-		<string>http://img.spriteapp.cn/ugc/2015/05/20/150609_9589.png</string>
-		<key>id</key>
-		<string>48</string>
-		<key>ipad</key>
-		<string></string>
-		<key>iphone</key>
-		<string></string>
-		<key>market</key>
-		<string></string>
-		<key>name</key>
-		<string>我的收藏</string>
-		<key>url</key>
-		<string>mod://BDJ_To_Mine@dest=2</string>
-	</dict>
-	<dict>
-		<key>android</key>
 		<string>4.0|</string>
 		<key>icon</key>
 		<string>http://mstatic.spriteapp.cn//ugc/2016/08/26/vF9w8T.jpg</string>

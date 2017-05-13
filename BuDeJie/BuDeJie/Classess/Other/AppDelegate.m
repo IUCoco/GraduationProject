@@ -83,7 +83,7 @@
     }
     
     //learncloud
-    [AVOSCloud setApplicationId:@"JE9lKxfz4OgsmNDph8EAaQpr-gzGzoHsz" clientKey:@"dA0DpObo713wxJUDh3KcONG5"];
+    [AVOSCloud setApplicationId:@"o7UuexbR2bay6PmJkhqB4nAg-gzGzoHsz" clientKey:@"RfIQ0RrqRgrnedaOd1Do6YQk"];
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     return YES;

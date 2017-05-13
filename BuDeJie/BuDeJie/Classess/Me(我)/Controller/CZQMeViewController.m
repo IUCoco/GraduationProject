@@ -14,6 +14,7 @@
 #import "CZQCollectionViewCell.h"
 #import <SafariServices/SafariServices.h>
 #import "CZQRegisterAndLoginViewController.h"
+#import "CZQBacklogViewController.h"
 
 
 static NSString * const ID = @"collectionCell";
@@ -172,6 +173,12 @@ static CGFloat margin = 1;
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     CZQLog(@"点击了item");
+    //选中待办事项
+    if (indexPath.row == 0) {
+        CZQLog(@"选中了待办事项");
+        CZQBacklogViewController *backlogVC = [[CZQBacklogViewController alloc] init];
+        [self.navigationController pushViewController:backlogVC animated:YES];
+    }
     //取出item中的url
     CZQCollectionItem *item = self.collectionItemsArr[indexPath.item];
     NSURL *url = [NSURL URLWithString:item.url];

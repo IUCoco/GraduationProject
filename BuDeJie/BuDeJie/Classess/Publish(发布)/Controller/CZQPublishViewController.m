@@ -11,6 +11,9 @@
 #import "XMGPostWordViewController.h"
 #import "CZQNavigationViewController.h"
 #import <POP.h>
+#import "CZQPostWeeklyViewController.h"
+#import "CZQPunchCardViewController.h"
+#import "CZQTakenbalkViewController.h"
 
 static CGFloat const XMGSpringFactor = 10;
 
@@ -66,7 +69,7 @@ static CGFloat const XMGSpringFactor = 10;
 {
     // 数据
     NSArray *images = @[@"mine-my-post", @"mine-icon-activity", @"mine-icon-feedback"];
-    NSArray *titles = @[@"发周报", @"打卡", @"待办事项"];
+    NSArray *titles = @[@"发周报", @"打卡", @"工作计划"];
     
     // 一些参数
     NSUInteger count = images.count;
@@ -171,23 +174,32 @@ static CGFloat const XMGSpringFactor = 10;
         // 按钮索引
         NSUInteger index = [self.buttons indexOfObject:button];
         switch (index) {
-            case 2: { // 发段子
+            case 2: {
+                CZQLog(@"待办事项");
+                CZQTakenbalkViewController *takenbalkVC = [[CZQTakenbalkViewController alloc] init];
+                [self.view.window.rootViewController presentViewController:[[CZQNavigationViewController alloc] initWithRootViewController:takenbalkVC] animated:YES completion:nil];
+#if 0
                 // 弹出发段子控制器
                 XMGPostWordViewController *postWord = [[XMGPostWordViewController alloc] init];
                 // 在这个viewDidLoad调用中，postWord.navigationController == nil
                 //                postWord.view.backgroundColor = [UIColor whiteColor]; // [postWord viewDidLoad]
                 [self.view.window.rootViewController presentViewController:[[CZQNavigationViewController alloc] initWithRootViewController:postWord] animated:YES completion:nil];
+#endif
                 break;
             }
                 
-            case 0:
-                CZQLog(@"发视屏");
+            case 0: {
+                CZQLog(@"发周报");
+                CZQPostWeeklyViewController *weeklyVC = [[CZQPostWeeklyViewController alloc] init];
+                [self.view.window.rootViewController presentViewController:[[CZQNavigationViewController alloc] initWithRootViewController:weeklyVC] animated:YES completion:nil];
                 break;
-                
-            case 1:
-                CZQLog(@"发图片");
+            }
+            case 1: {
+                CZQLog(@"打卡");
+                CZQPunchCardViewController *punchCardVC = [[CZQPunchCardViewController alloc] init];
+                [self.view.window.rootViewController presentViewController:[[CZQNavigationViewController alloc] initWithRootViewController:punchCardVC] animated:YES completion:nil];
                 break;
-                
+            }
             default:
                 CZQLog(@"其它");
                 break;

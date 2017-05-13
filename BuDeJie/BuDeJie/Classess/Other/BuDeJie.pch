@@ -57,6 +57,7 @@
 #define XMGWeakSelf __weak typeof(self) weakSelf = self;
 
 // 颜色
+#define RGB(r, g, b,view) view.backgroundColor=[UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
 #define XMGARGBColor(a, r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
 #define XMGColor(r, g, b) XMGARGBColor(255, (r), (g), (b))
 #define XMGGrayColor(v) XMGColor((v), (v), (v))
