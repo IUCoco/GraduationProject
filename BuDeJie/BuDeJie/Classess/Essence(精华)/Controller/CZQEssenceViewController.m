@@ -130,7 +130,7 @@
 //初始化子控制器
 - (void)setUpChildViewContrS{
     //添加五个子控制器
-    [self addChildViewController:[[CZQAllViewController alloc] init]];
+//    [self addChildViewController:[[CZQAllViewController alloc] init]];
     [self addChildViewController:[[CZQVideoViewController alloc] init]];
     [self addChildViewController:[[CZQVoiceViewController alloc] init]];
     [self addChildViewController:[[CZQPictureViewController alloc] init]];
@@ -192,7 +192,7 @@
 - (void)setUpTitleBtn{
     //按钮文字数组
 //    NSArray *btnTitleArr = @[@"全部", @"视频", @"声音", @"图片", @"段子"];
-    NSArray *btnTitleArr = @[@"客户", @"计划", @"打卡", @"周报", @"公司"];
+    NSArray *btnTitleArr = @[@"计划", @"打卡", @"周报", @"公司"];
     NSInteger count = btnTitleArr.count;
     //按钮尺寸
     CGFloat titleBtnW = CZQScreenWith / count;

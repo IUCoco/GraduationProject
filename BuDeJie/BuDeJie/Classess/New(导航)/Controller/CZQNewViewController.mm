@@ -536,11 +536,11 @@ errorCode:(BMKSearchErrorCode)error{
 #pragma mark - 设置导航条
 - (void)setUpNavBar{
     //左边按钮
-    UIImage *leftNorImage = [UIImage imageNamed:@"MainTagSubIcon"];
-    UIImage *leftHighImage = [UIImage imageNamed:@"MainTagSubIconClick"];
-    //调用UIBarButtonItem分类直接生成需要的buttonItem
-    UIBarButtonItem *leftBtnItem = [UIBarButtonItem itemWithNorImage:leftNorImage highImage:leftHighImage target:self action:@selector(newLeftBtnClick)];
-    self.navigationItem.leftBarButtonItem = leftBtnItem;
+//    UIImage *leftNorImage = [UIImage imageNamed:@"MainTagSubIcon"];
+//    UIImage *leftHighImage = [UIImage imageNamed:@"MainTagSubIconClick"];
+//    //调用UIBarButtonItem分类直接生成需要的buttonItem
+//    UIBarButtonItem *leftBtnItem = [UIBarButtonItem itemWithNorImage:leftNorImage highImage:leftHighImage target:self action:@selector(newLeftBtnClick)];
+//    self.navigationItem.leftBarButtonItem = leftBtnItem;
     //中间图片
 //    UIImage *centerImage = [UIImage imageNamed:@"MainTitle"];
 //    UIImageView *centerImageView = [[UIImageView alloc] initWithImage:centerImage];

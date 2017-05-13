@@ -9,17 +9,58 @@
 #import "CZQFriendThrendsViewController.h"
 #import "CZQRegisterAndLoginViewController.h"
 #import "CZQFllowViewController.h"
+#import <MJExtension.h>
+#import "CZQFriendThrendsItem.h"
+#import "CZQFriendThrendsCell.h"
 
-@interface CZQFriendThrendsViewController ()
+@interface CZQFriendThrendsViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 //记录登录成功与否状态
 @property (nonatomic, assign, getter=isLoginSuccess) BOOL loginSuccess;
 //记录登录成功后是否首次移除登录提示界面
 @property (nonatomic, assign, getter=isFirstRemoveSubViews) BOOL firstRemoveSubViews;
 
+//tabView
+@property (nonatomic, weak) UITableView *myTab;
+
+@property (nonatomic, strong) NSArray *friendThrendsArr;
+
 @end
 
 @implementation CZQFriendThrendsViewController
+
+static NSString * const FriendThrendsCellID = @"FriendThrendsCellID";
+
+- (NSArray *)friendThrendsArr {
+    if (!_friendThrendsArr) {
+        _friendThrendsArr = [CZQFriendThrendsItem mj_objectArrayWithFilename:@"FriendThrends.plist"];
+    }
+    
+    return _friendThrendsArr;
+}
+
+#pragma mark - lazy
+- (UITableView *)myTab{
+    if (!_myTab) {
+        CGRect tabFrame = CGRectMake(0, 64, CZQScreenWith, CZQScreenHight - CZQTabBarH - 64);
+        UITableView *myTab = [[UITableView alloc] initWithFrame:tabFrame style:UITableViewStylePlain];
+        myTab.backgroundColor = [UIColor clearColor];
+        myTab.showsVerticalScrollIndicator = YES;
+        myTab.showsHorizontalScrollIndicator = NO;
+        //设置tableView的contentInset，使tableView全屏穿透效果并且能够展示首位所有内容并且不会弹回
+        //顶部为基础20+44+TitleView的35 == 99  底部为tabBar的高度49
+        myTab.contentInset = UIEdgeInsetsMake(-64, 0, -CZQTabBarH, 0);
+        //*********设置滚动条的内边距
+        myTab.scrollIndicatorInsets = myTab.contentInset;
+        myTab.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+        myTab.separatorStyle = UITableViewCellSeparatorStyleNone;
+        myTab.delegate = self;
+        myTab.dataSource = self;
+        [self.view addSubview:myTab];
+        _myTab = myTab;
+    }
+    return _myTab;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,8 +76,25 @@
     if (self.isFirstRemoveSubViews) return;
     if (self.isLoginSuccess) {
         [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        [self.myTab registerClass:[CZQFriendThrendsCell class] forCellReuseIdentifier:FriendThrendsCellID];
         self.firstRemoveSubViews = YES;
     }
+}
+
+#pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 90;
+}
+
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.friendThrendsArr.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CZQFriendThrendsCell *cell = [tableView dequeueReusableCellWithIdentifier:FriendThrendsCellID];
+    cell.item = self.friendThrendsArr[indexPath.row];
+    return cell;
 }
 
 #pragma mark - privateMethod

@@ -10,7 +10,7 @@
 
 @interface CZQBacklogItem : NSObject
 
-@property (nonatomic, strong) NSString *imageStr;//右侧图像
+@property (nonatomic, strong) NSString *imageStr;//左侧图像
 @property (nonatomic, strong) NSString *statusStr;//完成状态
 @property (nonatomic, strong) NSString *timeStrUp;//时间label上
 @property (nonatomic, strong) NSString *timeStrDown;//时间label上
