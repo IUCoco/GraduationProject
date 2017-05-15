@@ -15,6 +15,10 @@
 
 @property (nonatomic, strong) NSMutableArray *voiceArrM;
 
+@property (nonatomic, assign, getter=isFirstAppear) BOOL firstAppear;//首次进入后值为真
+
+@property (nonatomic, assign, getter=isPunchCardSuccess) BOOL punchCardSuccess;
+
 @end
 
 @implementation CZQVoiceViewController
@@ -22,14 +26,26 @@
 static NSString *ID = @"VoiceCell";
 
 - (NSMutableArray *)voiceArrM {
-    if (!_voiceArrM) {
+//    if (!_voiceArrM) {
+    if (self.isFirstAppear && self.isPunchCardSuccess) {//首次进入后+打卡成功通知
+        NSString *docPath =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        NSString *filePath = [docPath stringByAppendingPathComponent:@"Voice.plist"];
+        NSArray *shaheArrM = [NSArray arrayWithContentsOfFile:filePath];
+        [_voiceArrM removeAllObjects];
+        _voiceArrM = [CZQVoiceItem mj_objectArrayWithKeyValuesArray:shaheArrM];
+        
+    }else {//首次进入
         _voiceArrM = [CZQVoiceItem mj_objectArrayWithFilename:@"Voice.plist"];
+        self.firstAppear = YES;
     }
+    
+//    }
     return _voiceArrM;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addObersvers];
     //设置tableView的contentInset，使tableView全屏穿透效果并且能够展示首位所有内容并且不会弹回
     //顶部为基础20+44+TitleView的35 == 99  底部为tabBar的高度49
     self.tableView.contentInset = UIEdgeInsetsMake(CZQTitleViewH, 0, CZQTabBarH + CZQContentInsetH, 0);
@@ -42,6 +58,11 @@ static NSString *ID = @"VoiceCell";
     //**********添加监听CZQTitleButtonDidRepeatClickNotification
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonDidRepeatClick) name:CZQTitleButtonDidRepeatClickNotification object:nil];
     [self.tableView registerClass:[CZQVoiceCell class] forCellReuseIdentifier:ID];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self voiceArrM];
+    [self.tableView reloadData];
 }
 
 //**********监听事件CZQTabBarButtonDidRepeatClickNotification
@@ -64,17 +85,24 @@ static NSString *ID = @"VoiceCell";
     NSLog(@"CZQVoiceViewController监听了CZQTitleButtonDidRepeatClickNotification点击------执行刷新");
 }
 
+#pragma mark - privateMethod
+//注册通知
+- (void)addObersvers {
+    //发布周报成功
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(punchCardSuccess) name:@"PUNCH_CZARD_SUCCESS" object:nil];
+}
+
 //移除监听
 - (void)dealloc{
     //移除CZQAllViewController的监听
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+//发布周报成功
+- (void)punchCardSuccess {
+    self.punchCardSuccess = YES;
 }
+
 
 #pragma mark - 数据源
 

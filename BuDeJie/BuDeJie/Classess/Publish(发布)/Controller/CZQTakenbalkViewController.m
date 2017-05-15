@@ -8,10 +8,13 @@
 
 #import "CZQTakenbalkViewController.h"
 #import <Masonry.h>
+#import <SVProgressHUD.h>
 
 @interface CZQTakenbalkViewController ()<UITextViewDelegate>
 
 @property (nonatomic, strong) UITextView *contentTextV;
+
+@property (nonatomic, strong) UILabel *timeLabel;
 
 @end
 
@@ -56,8 +59,9 @@
     timeLabel.textColor = [UIColor colorWithRed:139 / 255.0 green:139 / 255.0 blue:139 / 255.0 alpha:1.0];
     [self makRadius:timeLabel];
     timeLabel.numberOfLines = 0;
-    timeLabel.text = @"    本地时间:\n    2017-05-12 18:30";
+    timeLabel.text = @"2017-05-12";
     [self.view addSubview:timeLabel];
+    self.timeLabel = timeLabel;
     [timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(contentTextV.mas_bottom).offset(10);
         make.left.equalTo(self.view.mas_left).offset(15);
@@ -104,16 +108,44 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancel)];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStyleDone target:self action:@selector(post)];
-    self.navigationItem.rightBarButtonItem.enabled = NO;
     // 强制更新(能马上刷新现在的状态)
     [self.navigationController.navigationBar layoutIfNeeded];
 }
 
 #pragma mark - click
-- (void)post
-{
-    //    XMGLogFunc;
+- (void)post {
+    //新的模型
+    NSDictionary *NewItemDit = @{
+                                 @"detailStr" : self.contentTextV.text,
+                                 @"imageStr" : @"capa.png",
+                                 @"timeStr" : self.timeLabel.text
+                                 };
+    //获取bundle中的plist
+    NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"Video.plist" ofType:nil];
+    NSMutableArray *bundelArrM = [NSMutableArray arrayWithContentsOfFile:dataPath];
+    
+    [bundelArrM insertObject:NewItemDit atIndex:0];
+    
+    NSString *docPath =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSString *filePath = [docPath stringByAppendingPathComponent:@"Video.plist"];
+    
+    BOOL ww = [bundelArrM writeToFile:filePath atomically:YES];
+    
+    NSArray *shaheArrM = [NSArray arrayWithContentsOfFile:filePath];
+    
+    //发布计划发布成功通知
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TAKEN_BACK_SUCCESS" object:nil];
+    
+    //提示框提示
+    [SVProgressHUD showSuccessWithStatus:@"发布成功"];
+    
+    //退出
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self cancel];
+    });
+
 }
+
 
 - (void)cancel {
     [self dismissViewControllerAnimated:YES completion:nil];

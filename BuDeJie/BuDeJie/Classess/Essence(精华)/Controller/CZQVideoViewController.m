@@ -15,6 +15,10 @@
 
 @property (nonatomic, strong) NSMutableArray *videoArrM;
 
+@property (nonatomic, assign, getter=isFirstAppear) BOOL firstAppear;//首次进入后值为真
+
+@property (nonatomic, assign, getter=isFakenBackSuccess) BOOL takenBackSuccess;
+
 @end
 
 @implementation CZQVideoViewController
@@ -22,14 +26,26 @@
 static NSString *ID = @"VideoCell";
 
 - (NSMutableArray *)videoArrM {
-    if (!_videoArrM) {
+//    if (!_videoArrM) {
+    if (self.isFirstAppear && self.isFakenBackSuccess) {//首次进入后+发布计划成功通知
+        NSString *docPath =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        NSString *filePath = [docPath stringByAppendingPathComponent:@"Video.plist"];
+        NSArray *shaheArrM = [NSArray arrayWithContentsOfFile:filePath];
+        [_videoArrM removeAllObjects];
+        _videoArrM = [CZQVideoItem mj_objectArrayWithKeyValuesArray:shaheArrM];
+
+    }else {//首次进入
         _videoArrM = [CZQVideoItem mj_objectArrayWithFilename:@"Video.plist"];
+        self.firstAppear = YES;
     }
+    
+//    }
     return _videoArrM;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addObersvers];
     //设置tableView的contentInset，使tableView全屏穿透效果并且能够展示首位所有内容并且不会弹回
     //顶部为基础20+44+TitleView的35 == 99  底部为tabBar的高度49
     self.tableView.contentInset = UIEdgeInsetsMake(CZQTitleViewH, 0, CZQTabBarH + CZQContentInsetH, 0);
@@ -43,6 +59,11 @@ static NSString *ID = @"VideoCell";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(titleButtonDidRepeatClick) name:CZQTitleButtonDidRepeatClickNotification object:nil];
     
     [self.tableView registerClass:[CZQVideoCell class] forCellReuseIdentifier:ID];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self videoArrM];
+    [self.tableView reloadData];
 }
 
 //**********监听事件CZQTabBarButtonDidRepeatClickNotification
@@ -65,17 +86,25 @@ static NSString *ID = @"VideoCell";
     NSLog(@"CZQVideoViewController监听了CZQTitleButtonDidRepeatClickNotification点击------执行刷新");
 }
 
+
+#pragma mark - privateMethod
+//注册通知
+- (void)addObersvers {
+    //发布周报成功
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tanekBackSuccess) name:@"TAKEN_BACK_SUCCESS" object:nil];
+}
+
 //移除监听
 - (void)dealloc{
     //移除CZQAllViewController的监听
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+//发布周报成功
+- (void)tanekBackSuccess {
+    self.takenBackSuccess = YES;
 }
+
 
 #pragma mark - 数据源
 
