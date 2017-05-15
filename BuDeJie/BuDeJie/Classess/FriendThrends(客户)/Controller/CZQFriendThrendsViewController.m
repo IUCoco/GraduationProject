@@ -12,6 +12,7 @@
 #import <MJExtension.h>
 #import "CZQFriendThrendsItem.h"
 #import "CZQFriendThrendsCell.h"
+#import "CZQFriendThrendsItem.h"
 
 @interface CZQFriendThrendsViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -25,6 +26,10 @@
 
 @property (nonatomic, strong) NSMutableArray *friendThrendsArr;
 
+
+@property (nonatomic, assign, getter=isFirstAppear) BOOL firstAppear;//首次进入后值为真
+@property (nonatomic, assign, getter=isAddFriendThrendsSuccess) BOOL addFriendThrendsSuccess;//添加客户成功
+
 @end
 
 @implementation CZQFriendThrendsViewController
@@ -32,9 +37,21 @@
 static NSString * const FriendThrendsCellID = @"FriendThrendsCellID";
 
 - (NSMutableArray *)friendThrendsArr {
-    if (!_friendThrendsArr) {
+//    if (!_friendThrendsArr) {
+    
+    if (self.isFirstAppear && self.isAddFriendThrendsSuccess) {//首次进入后+添加客户成功通知
+        NSString *docPath =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        NSString *filePath = [docPath stringByAppendingPathComponent:@"FriendThrends.plist"];
+        NSArray *shaheArrM = [NSArray arrayWithContentsOfFile:filePath];
+        [_friendThrendsArr removeAllObjects];
+        _friendThrendsArr = [CZQFriendThrendsItem mj_objectArrayWithKeyValuesArray:shaheArrM];
+        
+    }else {//首次进入
         _friendThrendsArr = [CZQFriendThrendsItem mj_objectArrayWithFilename:@"FriendThrends.plist"];
+        self.firstAppear = YES;
     }
+    
+//    }
     
     return _friendThrendsArr;
 }
@@ -73,10 +90,20 @@ static NSString * const FriendThrendsCellID = @"FriendThrendsCellID";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    if (self.isFirstRemoveSubViews) return;
+//    if (self.isFirstRemoveSubViews) return;
+    
+    
     if (self.isLoginSuccess) {
-        [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+        });
         [self.myTab registerClass:[CZQFriendThrendsCell class] forCellReuseIdentifier:FriendThrendsCellID];
+        
+        //添加新模型处理
+        [self friendThrendsArr];
+        [self.myTab reloadData];
+        
         self.firstRemoveSubViews = YES;
     }
 }
@@ -102,10 +129,19 @@ static NSString * const FriendThrendsCellID = @"FriendThrendsCellID";
 - (void)addObersvers {
     //登录成功
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"LOGIN_SUCCESS" object:nil];
+    //添加新客户成功
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addFriendThrendsSuccess) name:@"ADD_FRIEND_THRENDS_SUCCESS" object:nil];
 }
 //移除通知
 - (void)removeObservers {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"LOGINBTN_CLICK" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"ADD_FRIEND_THRENDS_SUCCESS" object:nil];
+}
+
+
+//添加新客户成功
+- (void)addFriendThrendsSuccess {
+    self.addFriendThrendsSuccess = YES;
 }
 
 - (void)loginSuccess {
