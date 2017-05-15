@@ -44,6 +44,18 @@
 		56ED04491DF26759009C0623 /* CZQConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 56ED04481DF26759009C0623 /* CZQConst.m */; };
 		7B6A19A697832FB3E88CFB7D /* libPods-BuDeJie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 592A89307AB02FF817496E04 /* libPods-BuDeJie.a */; };
 		CF28E8391EC9450400F1B828 /* CZQTimeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CF28E8381EC9450400F1B828 /* CZQTimeUtil.m */; };
+		CF28E8B21EC9CFB400F1B828 /* UIAlertController+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = CF28E8971EC9CFB400F1B828 /* UIAlertController+Extend.m */; };
+		CF28E8B31EC9CFB400F1B828 /* UIImage+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = CF28E8991EC9CFB400F1B828 /* UIImage+Extend.m */; };
+		CF28E8B41EC9CFB400F1B828 /* AVCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF28E89C1EC9CFB400F1B828 /* AVCaptureViewController.m */; };
+		CF28E8B51EC9CFB400F1B828 /* IDAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF28E89E1EC9CFB400F1B828 /* IDAuthViewController.m */; };
+		CF28E8B61EC9CFB400F1B828 /* IDAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF28E89F1EC9CFB400F1B828 /* IDAuthViewController.xib */; };
+		CF28E8B71EC9CFB400F1B828 /* IDInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF28E8A11EC9CFB400F1B828 /* IDInfoViewController.m */; };
+		CF28E8B81EC9CFB400F1B828 /* IDInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF28E8A21EC9CFB400F1B828 /* IDInfoViewController.xib */; };
+		CF28E8B91EC9CFB400F1B828 /* zocr0.lib in Resources */ = {isa = PBXBuildFile; fileRef = CF28E8A61EC9CFB400F1B828 /* zocr0.lib */; };
+		CF28E8BA1EC9CFB400F1B828 /* libexidcardios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF28E8A81EC9CFB400F1B828 /* libexidcardios.a */; };
+		CF28E8BB1EC9CFB400F1B828 /* IDInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CF28E8AB1EC9CFB400F1B828 /* IDInfo.m */; };
+		CF28E8BC1EC9CFB400F1B828 /* RectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF28E8AE1EC9CFB400F1B828 /* RectManager.m */; };
+		CF28E8BD1EC9CFB400F1B828 /* LHSIDCardScaningView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF28E8B11EC9CFB400F1B828 /* LHSIDCardScaningView.m */; };
 		CF2A15481EBDFC1300538FE3 /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2A15471EBDFC1300538FE3 /* UIImage+Rotate.m */; };
 		CF2A154B1EBDFF3800538FE3 /* RouteAnnotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = CF2A154A1EBDFF3800538FE3 /* RouteAnnotation.mm */; };
 		CF2A15691EBEC07700538FE3 /* CZQPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF2A15681EBEC07700538FE3 /* CZQPublishViewController.xib */; };
@@ -186,6 +198,28 @@
 		9B2C6C491EFCF857354B100C /* Pods-BuDeJie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BuDeJie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BuDeJie/Pods-BuDeJie.debug.xcconfig"; sourceTree = "<group>"; };
 		CF28E8371EC9450400F1B828 /* CZQTimeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZQTimeUtil.h; sourceTree = "<group>"; };
 		CF28E8381EC9450400F1B828 /* CZQTimeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZQTimeUtil.m; sourceTree = "<group>"; };
+		CF28E8961EC9CFB400F1B828 /* UIAlertController+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Extend.h"; sourceTree = "<group>"; };
+		CF28E8971EC9CFB400F1B828 /* UIAlertController+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Extend.m"; sourceTree = "<group>"; };
+		CF28E8981EC9CFB400F1B828 /* UIImage+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extend.h"; sourceTree = "<group>"; };
+		CF28E8991EC9CFB400F1B828 /* UIImage+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extend.m"; sourceTree = "<group>"; };
+		CF28E89B1EC9CFB400F1B828 /* AVCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCaptureViewController.h; sourceTree = "<group>"; };
+		CF28E89C1EC9CFB400F1B828 /* AVCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCaptureViewController.m; sourceTree = "<group>"; };
+		CF28E89D1EC9CFB400F1B828 /* IDAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDAuthViewController.h; sourceTree = "<group>"; };
+		CF28E89E1EC9CFB400F1B828 /* IDAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDAuthViewController.m; sourceTree = "<group>"; };
+		CF28E89F1EC9CFB400F1B828 /* IDAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDAuthViewController.xib; sourceTree = "<group>"; };
+		CF28E8A01EC9CFB400F1B828 /* IDInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDInfoViewController.h; sourceTree = "<group>"; };
+		CF28E8A11EC9CFB400F1B828 /* IDInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDInfoViewController.m; sourceTree = "<group>"; };
+		CF28E8A21EC9CFB400F1B828 /* IDInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDInfoViewController.xib; sourceTree = "<group>"; };
+		CF28E8A41EC9CFB400F1B828 /* commondef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commondef.h; sourceTree = "<group>"; };
+		CF28E8A61EC9CFB400F1B828 /* zocr0.lib */ = {isa = PBXFileReference; lastKnownFileType = file; path = zocr0.lib; sourceTree = "<group>"; };
+		CF28E8A71EC9CFB400F1B828 /* excards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = excards.h; sourceTree = "<group>"; };
+		CF28E8A81EC9CFB400F1B828 /* libexidcardios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libexidcardios.a; sourceTree = "<group>"; };
+		CF28E8AA1EC9CFB400F1B828 /* IDInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDInfo.h; sourceTree = "<group>"; };
+		CF28E8AB1EC9CFB400F1B828 /* IDInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDInfo.m; sourceTree = "<group>"; };
+		CF28E8AD1EC9CFB400F1B828 /* RectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectManager.h; sourceTree = "<group>"; };
+		CF28E8AE1EC9CFB400F1B828 /* RectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectManager.m; sourceTree = "<group>"; };
+		CF28E8B01EC9CFB400F1B828 /* LHSIDCardScaningView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHSIDCardScaningView.h; sourceTree = "<group>"; };
+		CF28E8B11EC9CFB400F1B828 /* LHSIDCardScaningView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHSIDCardScaningView.m; sourceTree = "<group>"; };
 		CF2A15461EBDFC1300538FE3 /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
 		CF2A15471EBDFC1300538FE3 /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
 		CF2A15491EBDFF3800538FE3 /* RouteAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteAnnotation.h; sourceTree = "<group>"; };
@@ -304,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B6A19A697832FB3E88CFB7D /* libPods-BuDeJie.a in Frameworks */,
+				CF28E8BA1EC9CFB400F1B828 /* libexidcardios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +428,7 @@
 		5637BE031DE3194300FDE1F2 /* Classess */ = {
 			isa = PBXGroup;
 			children = (
+				CF28E8941EC9CFB400F1B828 /* IDCardRecognised(身份证识别) */,
 				561EE6241DEEEA77009461EB /* Tool */,
 				5637BE4F1DE5C3C000FDE1F2 /* AD(广告) */,
 				5637BE481DE5493100FDE1F2 /* Setting(设置) */,
@@ -757,6 +793,91 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CF28E8941EC9CFB400F1B828 /* IDCardRecognised(身份证识别) */ = {
+			isa = PBXGroup;
+			children = (
+				CF28E8951EC9CFB400F1B828 /* Category */,
+				CF28E89A1EC9CFB400F1B828 /* Controller */,
+				CF28E8A31EC9CFB400F1B828 /* libexidcard */,
+				CF28E8A91EC9CFB400F1B828 /* Model */,
+				CF28E8AC1EC9CFB400F1B828 /* Tool */,
+				CF28E8AF1EC9CFB400F1B828 /* View */,
+			);
+			path = "IDCardRecognised(身份证识别)";
+			sourceTree = "<group>";
+		};
+		CF28E8951EC9CFB400F1B828 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				CF28E8961EC9CFB400F1B828 /* UIAlertController+Extend.h */,
+				CF28E8971EC9CFB400F1B828 /* UIAlertController+Extend.m */,
+				CF28E8981EC9CFB400F1B828 /* UIImage+Extend.h */,
+				CF28E8991EC9CFB400F1B828 /* UIImage+Extend.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		CF28E89A1EC9CFB400F1B828 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CF28E89B1EC9CFB400F1B828 /* AVCaptureViewController.h */,
+				CF28E89C1EC9CFB400F1B828 /* AVCaptureViewController.m */,
+				CF28E89D1EC9CFB400F1B828 /* IDAuthViewController.h */,
+				CF28E89E1EC9CFB400F1B828 /* IDAuthViewController.m */,
+				CF28E89F1EC9CFB400F1B828 /* IDAuthViewController.xib */,
+				CF28E8A01EC9CFB400F1B828 /* IDInfoViewController.h */,
+				CF28E8A11EC9CFB400F1B828 /* IDInfoViewController.m */,
+				CF28E8A21EC9CFB400F1B828 /* IDInfoViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CF28E8A31EC9CFB400F1B828 /* libexidcard */ = {
+			isa = PBXGroup;
+			children = (
+				CF28E8A41EC9CFB400F1B828 /* commondef.h */,
+				CF28E8A51EC9CFB400F1B828 /* dicts */,
+				CF28E8A71EC9CFB400F1B828 /* excards.h */,
+				CF28E8A81EC9CFB400F1B828 /* libexidcardios.a */,
+			);
+			path = libexidcard;
+			sourceTree = "<group>";
+		};
+		CF28E8A51EC9CFB400F1B828 /* dicts */ = {
+			isa = PBXGroup;
+			children = (
+				CF28E8A61EC9CFB400F1B828 /* zocr0.lib */,
+			);
+			path = dicts;
+			sourceTree = "<group>";
+		};
+		CF28E8A91EC9CFB400F1B828 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CF28E8AA1EC9CFB400F1B828 /* IDInfo.h */,
+				CF28E8AB1EC9CFB400F1B828 /* IDInfo.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CF28E8AC1EC9CFB400F1B828 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				CF28E8AD1EC9CFB400F1B828 /* RectManager.h */,
+				CF28E8AE1EC9CFB400F1B828 /* RectManager.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		CF28E8AF1EC9CFB400F1B828 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CF28E8B01EC9CFB400F1B828 /* LHSIDCardScaningView.h */,
+				CF28E8B11EC9CFB400F1B828 /* LHSIDCardScaningView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CFB7EF991EA2FD9300D7A097 /* FriendThrends(客户) */ = {
 			isa = PBXGroup;
 			children = (
@@ -938,6 +1059,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF28E8B91EC9CFB400F1B828 /* zocr0.lib in Resources */,
 				CF2A158E1EBEC66800538FE3 /* XMGPostWordToolbar.xib in Resources */,
 				5637BDDD1DE3075E00FDE1F2 /* LaunchScreen.storyboard in Resources */,
 				5637BE641DE5CD8300FDE1F2 /* LaunchImage-800-Portrait-736h@3x.png in Resources */,
@@ -945,9 +1067,11 @@
 				5637BDDA1DE3075E00FDE1F2 /* Assets.xcassets in Resources */,
 				CFBDD79D1EC4100200B8997A /* CZQPersonalDetailsViewController.storyboard in Resources */,
 				CFBB1D191E45B69700DB98FD /* CZQTopicPictureView.xib in Resources */,
+				CF28E8B61EC9CFB400F1B828 /* IDAuthViewController.xib in Resources */,
 				5637BE661DE5CD8300FDE1F2 /* LaunchImage@2x.png in Resources */,
 				CFB7EFC81EA2FE2A00D7A097 /* CZQLoginAndRegisteModelView.xib in Resources */,
 				5637BE611DE5CD8300FDE1F2 /* LaunchImage-700-568h@2x.png in Resources */,
+				CF28E8B81EC9CFB400F1B828 /* IDInfoViewController.xib in Resources */,
 				CF62D6EC1EC6B59D007D2330 /* Backlog.plist in Resources */,
 				CFB7EFAB1EA2FD9300D7A097 /* CZQFriendThrendsViewController.xib in Resources */,
 				5637BE631DE5CD8300FDE1F2 /* LaunchImage-800-667h@2x.png in Resources */,
@@ -1058,6 +1182,8 @@
 				565ECA731DF1A2410022EB9D /* CZQVoiceViewController.m in Sources */,
 				CFB7EFD91EA3085000D7A097 /* CZQFollowCell.m in Sources */,
 				5637BE561DE5C3EA00FDE1F2 /* CZQADViewController.m in Sources */,
+				CF28E8B41EC9CFB400F1B828 /* AVCaptureViewController.m in Sources */,
+				CF28E8BD1EC9CFB400F1B828 /* LHSIDCardScaningView.m in Sources */,
 				CF2A15901EBEC66800538FE3 /* XMGTagButton.m in Sources */,
 				CF62D6EF1EC6F571007D2330 /* CZQFriendThrendsCell.m in Sources */,
 				CF62D6FC1EC73DA1007D2330 /* CZQVoiceItem.m in Sources */,
@@ -1071,8 +1197,11 @@
 				CF2A159D1EBEC8D700538FE3 /* XMGConst.m in Sources */,
 				CFB7EFAF1EA2FD9300D7A097 /* CZQFastLoginView.m in Sources */,
 				5637BE691DE692E400FDE1F2 /* CZQADItem.m in Sources */,
+				CF28E8B71EC9CFB400F1B828 /* IDInfoViewController.m in Sources */,
+				CF28E8B31EC9CFB400F1B828 /* UIImage+Extend.m in Sources */,
 				5637BE441DE530AB00FDE1F2 /* UIBarButtonItem+CZQItem.m in Sources */,
 				CFB7EFD71EA3085000D7A097 /* CZQNewViewController.mm in Sources */,
+				CF28E8BB1EC9CFB400F1B828 /* IDInfo.m in Sources */,
 				CF28E8391EC9450400F1B828 /* CZQTimeUtil.m in Sources */,
 				565ECA701DF1A2300022EB9D /* CZQVideoViewController.m in Sources */,
 				5637BE471DE5457000FDE1F2 /* CZQNavigationViewController.m in Sources */,
@@ -1080,6 +1209,7 @@
 				CF2A15A31EBECA3F00538FE3 /* UITextField+XMGExtension.m in Sources */,
 				CF2A154B1EBDFF3800538FE3 /* RouteAnnotation.mm in Sources */,
 				CF62D6E71EC6A998007D2330 /* CZQBacklogItem.m in Sources */,
+				CF28E8B21EC9CFB400F1B828 /* UIAlertController+Extend.m in Sources */,
 				CF62D6DB1EC4A4D9007D2330 /* CZQPostWeeklyViewController.m in Sources */,
 				CF62D6DE1EC4AA4D007D2330 /* CZQPunchCardViewController.m in Sources */,
 				5637BE261DE31B0500FDE1F2 /* CZQMeViewController.m in Sources */,
@@ -1100,8 +1230,10 @@
 				5637BE331DE32BE200FDE1F2 /* CZQTabBarController.m in Sources */,
 				5637BE3A1DE3E49F00FDE1F2 /* CZQTabBar.m in Sources */,
 				CF2FA42D1E41B94600630556 /* CZQWoldCell.m in Sources */,
+				CF28E8BC1EC9CFB400F1B828 /* RectManager.m in Sources */,
 				CF2A15481EBDFC1300538FE3 /* UIImage+Rotate.m in Sources */,
 				CFB7EFC71EA2FE2A00D7A097 /* CZQLoginAndRegisteModelView.m in Sources */,
+				CF28E8B51EC9CFB400F1B828 /* IDAuthViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1238,11 +1370,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = X98AC2E273;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Classess/Other/BuDeJie.pch";
 				INFOPLIST_FILE = BuDeJie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BuDeJie/Classess/IDCardRecognised(身份证识别)/libexidcard",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shiyiqi.520it;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1255,11 +1392,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = X98AC2E273;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Classess/Other/BuDeJie.pch";
 				INFOPLIST_FILE = BuDeJie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BuDeJie/Classess/IDCardRecognised(身份证识别)/libexidcard",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shiyiqi.520it;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

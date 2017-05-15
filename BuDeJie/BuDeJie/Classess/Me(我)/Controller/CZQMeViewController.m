@@ -15,6 +15,7 @@
 #import <SafariServices/SafariServices.h>
 #import "CZQRegisterAndLoginViewController.h"
 #import "CZQBacklogViewController.h"
+#import "IDAuthViewController.h"
 
 
 static NSString * const ID = @"collectionCell";
@@ -240,6 +241,9 @@ static CGFloat margin = 1;
         [self presentViewController:reginAndLoginVC animated:YES completion:nil];
     }else if (indexPath.section == 1) {
         CZQLog(@"名片扫描");
+        IDAuthViewController *idAuthVC = [[IDAuthViewController alloc] init];
+        [self.navigationController pushViewController:idAuthVC animated:YES];
+        
     }else if (indexPath.section == 0 && self.isLoginSuccess) {
         NSLog(@"展示个人信息咯");
     }
