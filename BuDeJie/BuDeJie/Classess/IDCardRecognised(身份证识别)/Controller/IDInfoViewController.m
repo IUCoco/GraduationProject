@@ -14,6 +14,9 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *IDImageView;
 @property (strong, nonatomic) IBOutlet UILabel *IDNumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sexLabel;
 
 @end
 
@@ -28,6 +31,9 @@
     self.IDImageView.layer.masksToBounds = YES;
     
     self.IDNumLabel.text = _IDInfo.num;
+    self.addressLabel.text = _IDInfo.address;
+    self.nameLabel.text = _IDInfo.name;
+    self.sexLabel.text = _IDInfo.gender;//性别
     self.IDImageView.image = _IDImage;
 }
 
