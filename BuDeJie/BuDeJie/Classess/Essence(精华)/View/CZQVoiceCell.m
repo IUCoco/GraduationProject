@@ -14,6 +14,7 @@
 
 @property (nonatomic, weak) UIImageView *myImgView;//左侧头像
 @property (nonatomic, weak) UILabel *timeLab;//时间label
+@property (nonatomic, weak) UILabel *timeLabDown;//时间分秒label
 @property (nonatomic, weak) UILabel *locationLab;//打卡地址label
 @property (nonatomic, weak) UIView *stripView;//灰色分隔条
 
@@ -40,6 +41,13 @@
         timeLab.text = @"2017-05-14";
         [self.contentView addSubview:timeLab];
         self.timeLab = timeLab;
+        
+        UILabel *timeLabDown = [[UILabel alloc] initWithFrame:CGRectZero];
+        timeLabDown.textColor = [UIColor colorWithRed:139 / 255.0 green:139 / 255.0 blue:139 / 255.0 alpha:1.0];
+        timeLabDown.font = [UIFont boldSystemFontOfSize:12];
+        timeLabDown.text = @"12:11";
+        [self.contentView addSubview:timeLabDown];
+        self.timeLabDown = timeLabDown;
         
         UILabel *locationLab = [[UILabel alloc] initWithFrame:CGRectZero];
         locationLab.textColor = [UIColor colorWithRed:165 / 255.0 green:165 / 255.0 blue:165 / 255.0 alpha:1.0];
@@ -74,10 +82,16 @@
         make.height.mas_equalTo(10);
     }];
     
+    [self.timeLabDown mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.contentView.mas_right).offset(-20);
+        make.top.equalTo(self.timeLab.mas_bottom).offset(3);
+        make.height.mas_equalTo(10);
+    }];
+    
     [self.locationLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.myImgView.mas_right).offset(13);
         make.right.equalTo(self.contentView.mas_right).offset(- 28);
-        make.top.equalTo(self.timeLab.mas_bottom).offset(3);
+        make.top.equalTo(self.timeLabDown.mas_bottom).offset(3);
         make.bottom.equalTo(self.contentView.mas_bottom).offset(-5);
     }];
     
@@ -95,6 +109,7 @@
     self.myImgView.image = [UIImage imageNamed:item.imageStr];
     self.timeLab.text = item.timeStr;
     self.locationLab.text = item.locationStr;
+    self.timeLabDown.text = item.timeDownStr;
 }
 
 @end

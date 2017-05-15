@@ -19,6 +19,10 @@
 
 @property (nonatomic, strong) UILabel *timeLabel;
 
+@property (nonatomic, strong) NSString *nowTime;
+
+@property (nonatomic, strong) NSString *localStr;
+
 @end
 
 @implementation CZQPostWeeklyViewController
@@ -59,12 +63,13 @@
     
     //时间label
     NSString *nowTime = [CZQTimeUtil timeWithYMD];
+    self.nowTime = nowTime;
     
     UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     timeLabel.textColor = [UIColor colorWithRed:139 / 255.0 green:139 / 255.0 blue:139 / 255.0 alpha:1.0];
     [self makRadius:timeLabel];
     timeLabel.numberOfLines = 0;
-    timeLabel.text = nowTime;
+    timeLabel.text = [NSString stringWithFormat:@"   当前时间:%@", nowTime];
     [self.view addSubview:timeLabel];
     self.timeLabel = timeLabel;
     [timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -76,13 +81,14 @@
     
     //地点
     NSString *localStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"selfLocationStr"];
+    self.localStr = localStr;
    
     UILabel *locationLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     locationLabel.textColor = [UIColor colorWithRed:139 / 255.0 green:139 / 255.0 blue:139 / 255.0 alpha:1.0];
     locationLabel.font = [UIFont systemFontOfSize:12];
     [self makRadius:locationLabel];
     locationLabel.numberOfLines = 0;
-    locationLabel.text = localStr;
+    locationLabel.text = [NSString stringWithFormat:@"    当前位置:%@", localStr];
     [self.view addSubview:locationLabel];
     self.locationLabel = locationLabel;
     [locationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -126,9 +132,9 @@
     //新的模型
     NSDictionary *NewItemDit = @{
                                  @"imageStr" : @"home_approval.png",
-                                 @"locationStr" : self.locationLabel.text,
+                                 @"locationStr" : self.localStr,
                                  @"detailStr" : self.contentTextV.text,
-                                 @"timeStr" : self.timeLabel.text
+                                 @"timeStr" : self.nowTime
                                  };
     //获取bundle中的plist
     NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"Picture.plist" ofType:nil];

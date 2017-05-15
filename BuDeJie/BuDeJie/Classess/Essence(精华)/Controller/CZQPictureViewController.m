@@ -27,7 +27,7 @@ static NSString *ID = @"PictureCell";
 
 - (NSMutableArray *)pictureArrM {
 //    if (!_pictureArrM) {
-    if (self.isFirstAppear && self.isPostWeeklySuccess) {//首次进入后+打卡成功通知
+    if (self.isFirstAppear && self.isPostWeeklySuccess) {//首次进入后+周报成功通知
         NSString *docPath =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
         NSString *filePath = [docPath stringByAppendingPathComponent:@"Picture.plist"];
         NSArray *shaheArrM = [NSArray arrayWithContentsOfFile:filePath];
@@ -105,7 +105,7 @@ static NSString *ID = @"PictureCell";
 #pragma mark - 数据源
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 110;
+    return 130;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

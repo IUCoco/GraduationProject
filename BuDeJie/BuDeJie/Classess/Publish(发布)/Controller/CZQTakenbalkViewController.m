@@ -17,6 +17,9 @@
 
 @property (nonatomic, strong) UILabel *timeLabel;
 
+@property (nonatomic, strong) NSString *nowTime;
+
+
 @end
 
 @implementation CZQTakenbalkViewController
@@ -57,12 +60,13 @@
     
     //时间label
     NSString *nowTime = [CZQTimeUtil timeWithYMD];
+    self.nowTime = nowTime;
     
     UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     timeLabel.textColor = [UIColor colorWithRed:139 / 255.0 green:139 / 255.0 blue:139 / 255.0 alpha:1.0];
     [self makRadius:timeLabel];
     timeLabel.numberOfLines = 0;
-    timeLabel.text = nowTime;
+    timeLabel.text = [NSString stringWithFormat:@"    当前时间:%@", nowTime];
     [self.view addSubview:timeLabel];
     self.timeLabel = timeLabel;
     [timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -80,7 +84,7 @@
     locationLabel.font = [UIFont systemFontOfSize:12];
     [self makRadius:locationLabel];
     locationLabel.numberOfLines = 0;
-    locationLabel.text = localStr;
+    locationLabel.text = [NSString stringWithFormat:@"    当前位置:%@", localStr];
     [self.view addSubview:locationLabel];
     [locationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(timeLabel.mas_bottom).offset(10);
@@ -123,7 +127,7 @@
     NSDictionary *NewItemDit = @{
                                  @"detailStr" : self.contentTextV.text,
                                  @"imageStr" : @"capa.png",
-                                 @"timeStr" : self.timeLabel.text
+                                 @"timeStr" : self.nowTime
                                  };
     //获取bundle中的plist
     NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"Video.plist" ofType:nil];

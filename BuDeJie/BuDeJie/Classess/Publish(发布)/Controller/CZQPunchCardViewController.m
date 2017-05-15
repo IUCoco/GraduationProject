@@ -9,12 +9,18 @@
 #import "CZQPunchCardViewController.h"
 #import <Masonry.h>
 #import <SVProgressHUD.h>
+#import "CZQTimeUtil.h"
 
 @interface CZQPunchCardViewController ()<UITextViewDelegate>
 
 @property (nonatomic, strong) UILabel *locationLabel;
 
-@property (nonatomic, strong) UILabel *timeLabel;
+@property (nonatomic, strong) NSString *nowTime;
+
+@property (nonatomic, strong) NSString *nowTimeHM;
+
+@property (nonatomic, strong) NSString *localStr;
+
 
 @end
 
@@ -53,13 +59,17 @@
     }];
     
     //时间label
+    NSString *nowTime = [CZQTimeUtil timeWithYMD];
+    self.nowTime = nowTime;
+    NSString *nowTimeHM = [CZQTimeUtil timeWithHM];
+    self.nowTimeHM = nowTimeHM;
+    
     UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     timeLabel.textColor = [UIColor colorWithRed:139 / 255.0 green:139 / 255.0 blue:139 / 255.0 alpha:1.0];
     [self makRadius:timeLabel];
     timeLabel.numberOfLines = 0;
-    timeLabel.text = @"2017-05-12";
+    timeLabel.text = [NSString stringWithFormat:@"    当前时间:%@ %@", nowTime, nowTimeHM];
     [self.view addSubview:timeLabel];
-    self.timeLabel = timeLabel;
     [timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(contentTextV.mas_bottom).offset(10);
         make.left.equalTo(self.view.mas_left).offset(15);
@@ -70,13 +80,14 @@
 
     //地点
     NSString *localStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"selfLocationStr"];
+    self.localStr = localStr;
     
     UILabel *locationLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     locationLabel.textColor = [UIColor colorWithRed:139 / 255.0 green:139 / 255.0 blue:139 / 255.0 alpha:1.0];
     locationLabel.font = [UIFont systemFontOfSize:12];
     [self makRadius:locationLabel];
     locationLabel.numberOfLines = 0;
-    locationLabel.text = localStr;
+    locationLabel.text = [NSString stringWithFormat:@"    当前位置:%@", localStr];
     [self.view addSubview:locationLabel];
     self.locationLabel = locationLabel;
     [locationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -119,8 +130,9 @@
     //新的模型
     NSDictionary *NewItemDit = @{
                                  @"imageStr" : @"discount.png",
-                                 @"locationStr" : self.locationLabel.text,
-                                 @"timeStr" : self.timeLabel.text
+                                 @"locationStr" : self.localStr,
+                                 @"timeStr" : self.nowTime,
+                                 @"timeDownStr" : self.nowTimeHM
                                  };
     //获取bundle中的plist
     NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"Voice.plist" ofType:nil];

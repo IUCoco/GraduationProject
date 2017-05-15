@@ -75,7 +75,7 @@
         make.top.equalTo(self.contentView.mas_top).offset(12);
         make.left.equalTo(self.contentView.mas_left).offset(20);
         make.bottom.equalTo(self.contentView.mas_bottom).offset(- 22);
-        make.width.mas_equalTo(65);
+        make.width.mas_equalTo(85);
     }];
     
     [self.timeLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -88,7 +88,7 @@
         make.left.equalTo(self.myImgView.mas_right).offset(13);
         make.right.equalTo(self.contentView.mas_right).offset(- 28);
         make.top.equalTo(self.timeLab.mas_bottom).offset(3);
-        make.height.mas_equalTo(20);
+        make.height.mas_equalTo(40);
     }];
     
     [self.detailLab mas_makeConstraints:^(MASConstraintMaker *make) {

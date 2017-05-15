@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSString *imageStr;//左侧头像
 @property (nonatomic, strong) NSString *locationStr;//打卡地址
 @property (nonatomic, strong) NSString *timeStr;//时间
+@property (nonatomic, strong) NSString *timeDownStr;//时间分秒
 
 @end
