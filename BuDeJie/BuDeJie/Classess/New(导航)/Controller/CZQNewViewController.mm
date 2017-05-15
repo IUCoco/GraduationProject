@@ -218,6 +218,10 @@ errorCode:(BMKSearchErrorCode)error{
       //在此处理正常结果
       NSLog(@"Success找到结果");
       CZQLog(@"%@+++++++++%@++++++++%@+++++%zd", result.addressDetail, result.address, result.businessCircle, result.location);
+      //本地定位位置
+      NSString *selfLocationStr = [NSString stringWithFormat:@"%@:%@", result.address, result.businessCircle];
+      [[NSUserDefaults standardUserDefaults] setObject:selfLocationStr forKey:@"selfLocationStr"];
+      CZQLog(@"++++---%@++++---", selfLocationStr);
       self.selfLocation = result.location;
   }
   else {

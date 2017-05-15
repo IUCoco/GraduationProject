@@ -67,13 +67,16 @@
         make.height.mas_equalTo(55);
     }];
     
+
     //地点
+    NSString *localStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"selfLocationStr"];
+    
     UILabel *locationLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     locationLabel.textColor = [UIColor colorWithRed:139 / 255.0 green:139 / 255.0 blue:139 / 255.0 alpha:1.0];
     locationLabel.font = [UIFont systemFontOfSize:12];
     [self makRadius:locationLabel];
     locationLabel.numberOfLines = 0;
-    locationLabel.text = @"浙江省杭州电子科技大学";
+    locationLabel.text = localStr;
     [self.view addSubview:locationLabel];
     self.locationLabel = locationLabel;
     [locationLabel mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -9,6 +9,7 @@
 #import "CZQTakenbalkViewController.h"
 #import <Masonry.h>
 #import <SVProgressHUD.h>
+#import "CZQTimeUtil.h"
 
 @interface CZQTakenbalkViewController ()<UITextViewDelegate>
 
@@ -55,11 +56,13 @@
     }];
     
     //时间label
+    NSString *nowTime = [CZQTimeUtil timeWithYMD];
+    
     UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     timeLabel.textColor = [UIColor colorWithRed:139 / 255.0 green:139 / 255.0 blue:139 / 255.0 alpha:1.0];
     [self makRadius:timeLabel];
     timeLabel.numberOfLines = 0;
-    timeLabel.text = @"2017-05-12";
+    timeLabel.text = nowTime;
     [self.view addSubview:timeLabel];
     self.timeLabel = timeLabel;
     [timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -70,12 +73,14 @@
     }];
     
     //地点
+    NSString *localStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"selfLocationStr"];
+    
     UILabel *locationLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     locationLabel.textColor = [UIColor colorWithRed:139 / 255.0 green:139 / 255.0 blue:139 / 255.0 alpha:1.0];
     locationLabel.font = [UIFont systemFontOfSize:12];
     [self makRadius:locationLabel];
     locationLabel.numberOfLines = 0;
-    locationLabel.text = @"    当前位置:\n    浙江杭州:\n    杭州电子科技大学";
+    locationLabel.text = localStr;
     [self.view addSubview:locationLabel];
     [locationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(timeLabel.mas_bottom).offset(10);
