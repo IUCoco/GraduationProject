@@ -17,7 +17,7 @@
 
 -(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        [self customBackBarButtonItem];
+//        [self customBackBarButtonItem];
     }
     
     return self;
