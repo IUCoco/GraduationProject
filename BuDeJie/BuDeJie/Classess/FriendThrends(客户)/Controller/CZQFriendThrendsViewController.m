@@ -46,6 +46,13 @@ static NSString * const FriendThrendsCellID = @"FriendThrendsCellID";
         [_friendThrendsArr removeAllObjects];
         _friendThrendsArr = [CZQFriendThrendsItem mj_objectArrayWithKeyValuesArray:shaheArrM];
         
+    }else if ([[NSUserDefaults standardUserDefaults] objectForKey:@"isFirstAddFT"]) {//沙河中已经存在了plist即不是app安装后首次启动
+        NSString *docPath =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        NSString *filePath = [docPath stringByAppendingPathComponent:@"FriendThrends.plist"];
+        NSArray *shaheArrM = [NSArray arrayWithContentsOfFile:filePath];
+        [_friendThrendsArr removeAllObjects];
+        _friendThrendsArr = [CZQFriendThrendsItem mj_objectArrayWithKeyValuesArray:shaheArrM];
+        
     }else {//首次进入
         _friendThrendsArr = [CZQFriendThrendsItem mj_objectArrayWithFilename:@"FriendThrends.plist"];
         self.firstAppear = YES;

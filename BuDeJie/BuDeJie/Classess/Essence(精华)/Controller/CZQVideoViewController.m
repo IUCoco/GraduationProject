@@ -34,6 +34,13 @@ static NSString *ID = @"VideoCell";
         [_videoArrM removeAllObjects];
         _videoArrM = [CZQVideoItem mj_objectArrayWithKeyValuesArray:shaheArrM];
 
+    }else if ([[NSUserDefaults standardUserDefaults] objectForKey:@"isFirstPublishTB"]) {//沙河中已经存在了plist即不是app安装后首次启动
+        NSString *docPath =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        NSString *filePath = [docPath stringByAppendingPathComponent:@"Video.plist"];
+        NSArray *shaheArrM = [NSArray arrayWithContentsOfFile:filePath];
+        [_videoArrM removeAllObjects];
+        _videoArrM = [CZQVideoItem mj_objectArrayWithKeyValuesArray:shaheArrM];
+        
     }else {//首次进入
         _videoArrM = [CZQVideoItem mj_objectArrayWithFilename:@"Video.plist"];
         self.firstAppear = YES;

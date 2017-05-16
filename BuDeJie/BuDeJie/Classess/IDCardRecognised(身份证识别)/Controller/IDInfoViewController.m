@@ -50,7 +50,14 @@
 
 #pragma mark - 正确，下一步
 - (IBAction)nextStep:(UIButton *)sender {
-    NSLog(@"经用户核对，身份证号码正确，那就进行下一步，比如身份证图像或号码经加密后，传递给后台");
+    NSLog(@"经用户核对，身份证号码正确，那就添加");
+    /**
+     解决bug，每次点击都首先读取bundle中的plist导致再次添加数据时候被覆盖
+     解决思路只有第一次点击才会读取bundle中的plist，之后点击发布全部直接读取沙盒中的plist
+     */
+    
+    BOOL isFirstAddFT = [[NSUserDefaults standardUserDefaults] objectForKey:@"isFirstAddFT"];
+    
     //新的模型
     NSDictionary *NewItemDit = @{
                                  @"imageStr" : @"customer.png",
@@ -59,24 +66,41 @@
                                  @"sexStr" : self.sexLabel.text,
                                  @"idcardNumStr" : self.IDNumLabel.text
                                  };
-    //获取bundle中的plist
-    NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"FriendThrends.plist" ofType:nil];
-    NSMutableArray *bundelArrM = [NSMutableArray arrayWithContentsOfFile:dataPath];
     
-    [bundelArrM insertObject:NewItemDit atIndex:0];
-    
-    NSString *docPath =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-    NSString *filePath = [docPath stringByAppendingPathComponent:@"FriendThrends.plist"];
-    
-    BOOL ww = [bundelArrM writeToFile:filePath atomically:YES];
-    
-    NSArray *shaheArrM = [NSArray arrayWithContentsOfFile:filePath];
+    if (isFirstAddFT) {//首次发布成功后之后发布进入该判断
+        NSString *docPath =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        NSString *filePath = [docPath stringByAppendingPathComponent:@"FriendThrends.plist"];
+        NSMutableArray *shaheArrM = [NSMutableArray arrayWithContentsOfFile:filePath];
+        
+        [shaheArrM insertObject:NewItemDit atIndex:0];
+        
+        BOOL ww = [shaheArrM writeToFile:filePath atomically:YES];
+        
+        
+    }else {//首次发布
+        //获取bundle中的plist
+        NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"FriendThrends.plist" ofType:nil];
+        NSMutableArray *bundelArrM = [NSMutableArray arrayWithContentsOfFile:dataPath];
+        
+        [bundelArrM insertObject:NewItemDit atIndex:0];
+        
+        NSString *docPath =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        NSString *filePath = [docPath stringByAppendingPathComponent:@"FriendThrends.plist"];
+        
+        BOOL ww = [bundelArrM writeToFile:filePath atomically:YES];
+        
+        NSArray *shaheArrM = [NSArray arrayWithContentsOfFile:filePath];
+        
+    }
     
     //发布计划发布成功通知
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ADD_FRIEND_THRENDS_SUCCESS" object:nil];
     
     //提示框提示
     [SVProgressHUD showSuccessWithStatus:@"添加客户成功"];
+    
+    //添加首次发布成功标记
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isFirstAddFT"];
     
     //退出
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

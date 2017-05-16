@@ -34,6 +34,13 @@ static NSString *ID = @"VoiceCell";
         [_voiceArrM removeAllObjects];
         _voiceArrM = [CZQVoiceItem mj_objectArrayWithKeyValuesArray:shaheArrM];
         
+    }else if ([[NSUserDefaults standardUserDefaults] objectForKey:@"isFirstPublishCard"]){//沙河中已经存在了plist即不是app安装后首次启动
+        NSString *docPath =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        NSString *filePath = [docPath stringByAppendingPathComponent:@"Voice.plist"];
+        NSArray *shaheArrM = [NSArray arrayWithContentsOfFile:filePath];
+        [_voiceArrM removeAllObjects];
+        _voiceArrM = [CZQVoiceItem mj_objectArrayWithKeyValuesArray:shaheArrM];
+        
     }else {//首次进入
         _voiceArrM = [CZQVoiceItem mj_objectArrayWithFilename:@"Voice.plist"];
         self.firstAppear = YES;

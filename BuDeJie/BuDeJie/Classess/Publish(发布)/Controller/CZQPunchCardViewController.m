@@ -127,6 +127,14 @@
 
 #pragma mark - click
 - (void)post {
+    
+    /**
+     解决bug，每次点击都首先读取bundle中的plist导致再次添加数据时候被覆盖
+     解决思路只有第一次点击才会读取bundle中的plist，之后点击发布全部直接读取沙盒中的plist
+     */
+    
+    BOOL isFirstPublishCard = [[NSUserDefaults standardUserDefaults] objectForKey:@"isFirstPublishCard"];
+    
     //新的模型
     NSDictionary *NewItemDit = @{
                                  @"imageStr" : @"discount.png",
@@ -134,24 +142,41 @@
                                  @"timeStr" : self.nowTime,
                                  @"timeDownStr" : self.nowTimeHM
                                  };
-    //获取bundle中的plist
-    NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"Voice.plist" ofType:nil];
-    NSMutableArray *bundelArrM = [NSMutableArray arrayWithContentsOfFile:dataPath];
+    if (isFirstPublishCard) {//首次发布成功后之后发布进入该判断
+        NSString *docPath =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        NSString *filePath = [docPath stringByAppendingPathComponent:@"Voice.plist"];
+        NSMutableArray *shaheArrM = [NSMutableArray arrayWithContentsOfFile:filePath];
+        
+        [shaheArrM insertObject:NewItemDit atIndex:0];
+        
+        BOOL ww = [shaheArrM writeToFile:filePath atomically:YES];
+        
+        
+    }else {//首次发布
+        //获取bundle中的plist
+        NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"Voice.plist" ofType:nil];
+        NSMutableArray *bundelArrM = [NSMutableArray arrayWithContentsOfFile:dataPath];
+        
+        [bundelArrM insertObject:NewItemDit atIndex:0];
+        
+        NSString *docPath =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        NSString *filePath = [docPath stringByAppendingPathComponent:@"Voice.plist"];
+        
+        BOOL ww = [bundelArrM writeToFile:filePath atomically:YES];
+        
+        NSArray *shaheArrM = [NSArray arrayWithContentsOfFile:filePath];
+        
+    }
     
-    [bundelArrM insertObject:NewItemDit atIndex:0];
-    
-    NSString *docPath =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-    NSString *filePath = [docPath stringByAppendingPathComponent:@"Voice.plist"];
-    
-    BOOL ww = [bundelArrM writeToFile:filePath atomically:YES];
-    
-    NSArray *shaheArrM = [NSArray arrayWithContentsOfFile:filePath];
     
     //发布计划发布成功通知
     [[NSNotificationCenter defaultCenter] postNotificationName:@"PUNCH_CZARD_SUCCESS" object:nil];
     
     //提示框提示
     [SVProgressHUD showSuccessWithStatus:@"打卡成功"];
+    
+    //添加首次发布成功标记
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isFirstPublishCard"];
     
     //退出
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
